@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+
+<VBox alignment="CENTER" maxWidth="1.7976931348623157E308" prefWidth="600.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.jht.controller.StaffFormController">
+   <children>
+      <ScrollPane fitToWidth="true" hbarPolicy="NEVER" maxWidth="600.0" minWidth="600.0" prefWidth="600.0" VBox.vgrow="ALWAYS">
+         <content>
+            <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" spacing="16.0">
+               <children>
+                  <VBox maxWidth="1.7976931348623157E308" spacing="10.0">
+                     <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Role" />
+                        <ComboBox fx:id="fxRole" maxWidth="1.7976931348623157E308" VBox.vgrow="ALWAYS" />
+                     </children>
+                  </VBox>
+                  <VBox spacing="10.0">
+                     <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="First Name" />
+                        <TextField fx:id="fxFirstName" />
+                     </children>
+                  </VBox>
+                  <VBox layoutX="10.0" layoutY="59.0" spacing="10.0">
+                     <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Last Name" />
+                        <TextField />
+                     </children>
+                  </VBox>
+                  <VBox layoutX="10.0" layoutY="143.0" spacing="10.0">
+                     <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="TRN" />
+                        <TextField />
+                     </children>
+                  </VBox>
+                  <VBox layoutX="26.0" layoutY="232.0" spacing="10.0">
+                     <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Date of Birth" />
+                        <DatePicker maxWidth="1.7976931348623157E308" />
+                     </children>
+                  </VBox>
+                  <VBox spacing="5.0">
+                     <children>
+                        <Text fill="#434343" strokeType="OUTSIDE" strokeWidth="0.0" text="Contact Information">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font>
+                        </Text>
+                        <HBox>
+                           <children>
+                              <Separator HBox.hgrow="ALWAYS" />
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+                  <VBox layoutX="26.0" layoutY="229.0" spacing="10.0">
+                     <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Phone Number" />
+                        <TextField />
+                     </children>
+                  </VBox>
+                  <VBox layoutX="26.0" layoutY="365.0" spacing="10.0">
+                     <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Email Address" />
+                        <TextField />
+                     </children>
+                  </VBox>
+                  <VBox layoutX="26.0" layoutY="364.0" spacing="5.0">
+                     <children>
+                        <Text fill="#434343" strokeType="OUTSIDE" strokeWidth="0.0" text="Address">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font>
+                        </Text>
+                        <HBox>
+                           <children>
+                              <Separator HBox.hgrow="ALWAYS" />
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+                  <VBox layoutX="26.0" layoutY="450.0" spacing="10.0">
+                     <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Address One" />
+                        <TextField />
+                     </children>
+                  </VBox>
+                  <VBox layoutX="26.0" layoutY="584.0" spacing="10.0">
+                     <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Address Two" />
+                        <TextField />
+                     </children>
+                  </VBox>
+                  <VBox layoutX="26.0" layoutY="652.0" spacing="10.0">
+                     <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Parish" />
+                        <ComboBox maxWidth="1.7976931348623157E308" VBox.vgrow="ALWAYS" />
+                     </children>
+                  </VBox>
+                  <VBox layoutX="26.0" layoutY="718.0" spacing="10.0">
+                     <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Post Office" />
+                        <TextField />
+                     </children>
+                  </VBox>
+               </children>
+               <padding>
+                  <Insets bottom="16.0" left="16.0" right="16.0" top="16.0" />
+               </padding>
+            </VBox>
+         </content>
+      </ScrollPane>
+      <HBox alignment="BOTTOM_RIGHT" spacing="10.0">
+         <children>
+            <Button mnemonicParsing="false" style="-fx-background-color: #f8d7da;" text="Cancel" textFill="#842029">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Button>
+            <Button mnemonicParsing="false" style="-fx-background-color: #cfe2ff;" text="Create" textFill="#084298">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Button>
+         </children>
+         <padding>
+            <Insets bottom="16.0" left="16.0" right="16.0" top="16.0" />
+         </padding>
+      </HBox>
+   </children>
+</VBox>

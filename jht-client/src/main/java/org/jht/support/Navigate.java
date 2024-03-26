@@ -3,6 +3,7 @@ package org.jht.support;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.HBox;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 import org.jht.JHTApplication;
 
@@ -61,7 +62,7 @@ public class Navigate {
         if (masterLayout == null){
             masterLayout = FXMLInflater.inflateParent("master_layout.fxml");
 
-            Scene scene = new Scene(masterLayout);
+            Scene scene = new Scene(masterLayout, 1800, 900);
 
             stage.setScene(scene);
         }
@@ -73,6 +74,16 @@ public class Navigate {
         fxLayoutContent.getChildren().removeAll(fxLayoutContent.getChildren());
         fxLayoutContent.getChildren().add(childLayout);
 
+        stage.show();
+    }
+
+    public static void toWindow(String name, String layout) {
+        Parent parent = FXMLInflater.inflateParent(layout);
+        Stage stage = new Stage();
+        stage.initOwner(getParentStage());
+        stage.initModality(Modality.APPLICATION_MODAL);
+        stage.setTitle(name);
+        stage.setScene(new Scene(parent, 600, 600));
         stage.show();
     }
 
