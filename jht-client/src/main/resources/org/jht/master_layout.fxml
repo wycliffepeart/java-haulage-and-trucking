@@ -69,7 +69,9 @@
                         <Button alignment="TOP_LEFT" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" onMouseClicked="#onClickManageStaff" prefHeight="26.0" prefWidth="150.0" text="Manage Staff" />
                         <Button alignment="TOP_LEFT" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" onMouseClicked="#onClickManageCustomer" prefHeight="26.0" prefWidth="150.0" text="Manage Customer" />
                         <Button alignment="TOP_LEFT" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" onMouseClicked="#onClickManageOrders" prefHeight="26.0" prefWidth="150.0" text="Manage Orders" />
-                        <Button alignment="TOP_LEFT" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" prefHeight="26.0" prefWidth="150.0" text="Manage Salary" />
+                        <Button alignment="TOP_LEFT" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" onMouseClicked="#onClickManageSalary" prefHeight="26.0" prefWidth="150.0" text="Manage Salary" />
+                        <Button alignment="TOP_LEFT" layoutX="26.0" layoutY="152.0" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" prefHeight="26.0" prefWidth="150.0" text="Manage Order Report" />
+                        <Button alignment="TOP_LEFT" layoutX="26.0" layoutY="194.0" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" prefHeight="26.0" prefWidth="150.0" text="Manage Invoice Report" />
                      </children>
                      <padding>
                         <Insets bottom="16.0" left="16.0" right="16.0" top="16.0" />

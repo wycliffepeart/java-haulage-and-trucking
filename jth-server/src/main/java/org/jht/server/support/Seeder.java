@@ -4,6 +4,7 @@ import com.github.javafaker.Faker;
 import org.jht.server.entity.*;
 import org.jht.server.repository.CustomerRepository;
 import org.jht.server.repository.OrderRepository;
+import org.jht.server.repository.SalaryRepository;
 import org.jht.server.repository.StaffRepository;
 import org.springframework.boot.context.event.ApplicationReadyEvent;
 import org.springframework.context.event.EventListener;
@@ -22,11 +23,13 @@ public class Seeder {
     private final CustomerRepository customerRepository;
     private final StaffRepository staffRepository;
     private final OrderRepository orderRepository;
+    private final SalaryRepository salaryRepository;
 
-    public Seeder(CustomerRepository customerRepository, StaffRepository staffRepository, OrderRepository orderRepository) {
+    public Seeder(CustomerRepository customerRepository, StaffRepository staffRepository, OrderRepository orderRepository, SalaryRepository salaryRepository) {
         this.customerRepository = customerRepository;
         this.staffRepository = staffRepository;
         this.orderRepository = orderRepository;
+        this.salaryRepository = salaryRepository;
     }
 
     @EventListener(ApplicationReadyEvent.class)
@@ -36,6 +39,7 @@ public class Seeder {
         this.customerRepository.saveAll(seedCustomer());
         this.staffRepository.saveAll(getStaffFakeList());
         this.orderRepository.saveAll(getFakeOrderEntities());
+        this.salaryRepository.saveAll(getFakeSalaryList());
     }
 
     public List<Customer> seedCustomer() {
@@ -45,6 +49,10 @@ public class Seeder {
 
     public List<Staff> getStaffFakeList() {
         return Stream.generate(this::getStaff).limit(50).collect(Collectors.toList());
+    }
+
+    public List<Salary> getFakeSalaryList(){
+        return Stream.generate(this::getSalary).limit(50).collect(Collectors.toList());
     }
 
     public List<OrderEntity> getFakeOrderEntities() {
@@ -57,6 +65,18 @@ public class Seeder {
                 .setSourceAddress(getAddress())
                 .setDestinationAddress(getAddress())
         ).limit(50).collect(Collectors.toList());
+    }
+
+    public Salary getSalary(){
+        return new Salary()
+                .setSalary(faker.number().randomDouble(2, 100000, 100000))
+                .setId(faker.number().randomDigit())
+                .setStaff(getStaff())
+                .setPreparedBy(getStaff())
+                .setEndDate(new Date())
+                .setStartDate(new Date())
+                .setUpdatedAt(faker.date().birthday())
+                .setCreatedAt(faker.date().birthday());
     }
 
     public Customer getCustomer() {

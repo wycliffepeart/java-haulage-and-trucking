@@ -5,6 +5,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
+import org.jht.support.Data;
 import org.jht.support.Role;
 
 import java.net.URL;
@@ -17,6 +18,9 @@ public class StaffFormController implements Initializable {
     ComboBox<String> fxRole;
 
     @FXML
+    ComboBox<String> fxParish;
+
+    @FXML
     TextField fxFirstName;
 
     @Override
@@ -26,5 +30,8 @@ public class StaffFormController implements Initializable {
 
         items.add(Role.STAFF.name());
         items.add(Role.ADMIN.name());
+
+        ObservableList<String> jamaicaParishes = fxParish.getItems();
+        jamaicaParishes.addAll(Data.getParishes());
     }
 }

@@ -16,6 +16,7 @@ module org.jht {
     requires com.google.gson;
     requires retrofit2.converter.gson;
     requires org.apache.logging.log4j;
+    requires org.jetbrains.annotations;
 
     opens org.jht to javafx.fxml, lombok;
     opens org.jht.dto to com.google.gson;

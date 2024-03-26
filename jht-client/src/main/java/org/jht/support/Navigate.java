@@ -85,6 +85,7 @@ public class Navigate {
         stage.setTitle(name);
         stage.setScene(new Scene(parent, 600, 600));
         stage.show();
+        parent.requestFocus();
     }
 
     /**
