@@ -51,4 +51,9 @@ public class MasterLayoutController implements Initializable {
     private void onClickManageSalary(MouseEvent event) {
         Navigate.to("salary_table.fxml");
     }
+
+    @FXML
+    private void onClickManageRoute(MouseEvent event) {
+        Navigate.to("route_table.fxml");
+    }
 }

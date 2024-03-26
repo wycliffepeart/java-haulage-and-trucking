@@ -2,10 +2,7 @@ package org.jht.server.support;
 
 import com.github.javafaker.Faker;
 import org.jht.server.entity.*;
-import org.jht.server.repository.CustomerRepository;
-import org.jht.server.repository.OrderRepository;
-import org.jht.server.repository.SalaryRepository;
-import org.jht.server.repository.StaffRepository;
+import org.jht.server.repository.*;
 import org.springframework.boot.context.event.ApplicationReadyEvent;
 import org.springframework.context.event.EventListener;
 import org.springframework.stereotype.Component;
@@ -24,12 +21,14 @@ public class Seeder {
     private final StaffRepository staffRepository;
     private final OrderRepository orderRepository;
     private final SalaryRepository salaryRepository;
+    private final RouteRepository routeRepository;
 
-    public Seeder(CustomerRepository customerRepository, StaffRepository staffRepository, OrderRepository orderRepository, SalaryRepository salaryRepository) {
+    public Seeder(CustomerRepository customerRepository, StaffRepository staffRepository, OrderRepository orderRepository, SalaryRepository salaryRepository, RouteRepository routeRepository) {
         this.customerRepository = customerRepository;
         this.staffRepository = staffRepository;
         this.orderRepository = orderRepository;
         this.salaryRepository = salaryRepository;
+        this.routeRepository = routeRepository;
     }
 
     @EventListener(ApplicationReadyEvent.class)
@@ -40,6 +39,7 @@ public class Seeder {
         this.staffRepository.saveAll(getStaffFakeList());
         this.orderRepository.saveAll(getFakeOrderEntities());
         this.salaryRepository.saveAll(getFakeSalaryList());
+        this.routeRepository.saveAll(getFakeRouteList());
     }
 
     public List<Customer> seedCustomer() {
@@ -51,7 +51,7 @@ public class Seeder {
         return Stream.generate(this::getStaff).limit(50).collect(Collectors.toList());
     }
 
-    public List<Salary> getFakeSalaryList(){
+    public List<Salary> getFakeSalaryList() {
         return Stream.generate(this::getSalary).limit(50).collect(Collectors.toList());
     }
 
@@ -67,7 +67,20 @@ public class Seeder {
         ).limit(50).collect(Collectors.toList());
     }
 
-    public Salary getSalary(){
+    public List<Route> getFakeRouteList(){
+        return Stream.generate(this::getRoute).limit(50).collect(Collectors.toList());
+    }
+
+    public Route getRoute() {
+        return new Route()
+                .setRate(faker.number().randomDouble(2, 100, 1000))
+                .setDescription(faker.address().fullAddress())
+                .setDistance(faker.number().numberBetween(1, 10))
+                .setSourceParish(faker.country().capital())
+                .setDestinationParish(faker.country().capital());
+    }
+
+    public Salary getSalary() {
         return new Salary()
                 .setSalary(faker.number().randomDouble(2, 100000, 100000))
                 .setId(faker.number().randomDigit())

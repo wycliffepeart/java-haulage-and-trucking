@@ -6,6 +6,7 @@ import lombok.Setter;
 import lombok.experimental.Accessors;
 
 import java.util.Date;
+import java.util.List;
 
 @Getter()
 @Setter()
@@ -26,6 +27,9 @@ public class Salary {
     private Date createdAt;
 
     private Date updatedAt;
+
+    @OneToMany(cascade = CascadeType.ALL)
+    private List<OrderEntity> orderEntities;
 
     @OneToOne(cascade = CascadeType.ALL, optional = false)
     private Staff staff;
