@@ -1,4 +1,4 @@
-package org.jht.support;
+package org.jht.server.support;
 
 public enum Role {
 

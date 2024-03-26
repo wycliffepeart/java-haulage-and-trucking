@@ -12,9 +12,14 @@ module org.jht {
     requires com.almasb.fxgl.all;
     requires java.sql;
     requires static lombok;
+    requires retrofit2;
+    requires com.google.gson;
+    requires retrofit2.converter.gson;
     requires org.apache.logging.log4j;
 
     opens org.jht to javafx.fxml, lombok;
+    opens org.jht.dto to com.google.gson;
+    opens org.jht.support to com.google.gson;
     opens org.jht.controller to javafx.fxml;
     opens org.jht.component to javafx.fxml;
     exports org.jht;
