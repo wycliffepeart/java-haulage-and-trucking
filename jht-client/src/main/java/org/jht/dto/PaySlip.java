@@ -5,7 +5,6 @@ import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 import lombok.experimental.Accessors;
-import org.jht.support.Data;
 
 import java.util.Date;
 
@@ -14,7 +13,7 @@ import java.util.Date;
 @AllArgsConstructor
 @RequiredArgsConstructor
 @Accessors(chain = true)
-public class Salary {
+public class PaySlip {
 
     private final int id;
 
@@ -30,5 +29,5 @@ public class Salary {
 
     private final Staff staff;
 
-    private final Staff preparedBy;
+    private final Staff admin;
 }

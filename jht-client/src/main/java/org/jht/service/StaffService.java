@@ -21,4 +21,5 @@ public class StaffService {
     public void getAll(Callback<List<Staff>> callback) {
         HttpClient.use(StaffRepository.class).staffList().enqueue(callback);
     }
+
 }

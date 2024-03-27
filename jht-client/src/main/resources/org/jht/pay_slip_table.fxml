@@ -41,7 +41,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<VBox prefHeight="600.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.jht.controller.SalaryTableController">
+<VBox prefHeight="600.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.jht.controller.PaySlipTableController">
     <children>
             <HBox alignment="CENTER" style="-fx-padding: 10;">
                 <children>
@@ -60,7 +60,7 @@
             <HBox spacing="16.0">
                <children>
                   <ComboBox fx:id="fxUsersFilter" prefHeight="28.0" prefWidth="150.0" promptText="Select User" />
-                          <Button alignment="CENTER" ellipsisString="" mnemonicParsing="false" prefHeight="28.0" prefWidth="130.0" style="-fx-background-color: #0d6efd; -fx-border-color: #0d6efd; -fx-border-radius: 10;" text="Generate Pay Slip" textFill="WHITE">
+                          <Button alignment="CENTER" ellipsisString="" mnemonicParsing="false" onMouseClicked="#onClickGeneratePaySlip" prefHeight="28.0" prefWidth="130.0" style="-fx-background-color: #0d6efd; -fx-border-color: #0d6efd; -fx-border-radius: 10;" text="Generate Pay Slip" textFill="WHITE">
                      <font>
                         <Font name="System Bold Italic" size="13.0" />
                      </font>

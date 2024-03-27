@@ -49,7 +49,7 @@ public class MasterLayoutController implements Initializable {
 
     @FXML
     private void onClickManageSalary(MouseEvent event) {
-        Navigate.to("salary_table.fxml");
+        Navigate.to("pay_slip_table.fxml");
     }
 
     @FXML

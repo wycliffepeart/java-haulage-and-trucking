@@ -13,7 +13,6 @@ import java.util.ResourceBundle;
 
 public class StaffFormController implements Initializable {
 
-
     @FXML
     ComboBox<String> fxRole;
 
