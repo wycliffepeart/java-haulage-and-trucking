@@ -12,7 +12,6 @@ import org.jht.component.StaffComboBoxMapping;
 import org.jht.dto.PaySlip;
 import org.jht.dto.Staff;
 import org.jht.service.PaySlipService;
-import org.jht.service.StaffService;
 import org.jht.support.Navigate;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -31,13 +30,12 @@ public class PaySlipTableController implements Initializable {
     public ComboBox<Staff> fxUsersFilter;
 
     private final PaySlipService service = new PaySlipService();
-    private final StaffComboBoxMapping staffComboBoxMapping = new StaffComboBoxMapping();
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         var salaryTable = new PaySlipTableMappings(tableView);
 
-        this.staffComboBoxMapping.mapStaff(fxUsersFilter);
+        StaffComboBoxMapping.map(fxUsersFilter);
 
         this.service.getAll(new Callback<>() {
             @Override
@@ -55,7 +53,7 @@ public class PaySlipTableController implements Initializable {
     }
 
     @FXML
-    void onClickGeneratePaySlip(MouseEvent event){
-        Navigate.toWindow("Generate Pay Slip","pay_slip_generator_form.fxml");
+    void onClickGeneratePaySlip(MouseEvent event) {
+        Navigate.toWindow("Generate Pay Slip", "pay_slip_generator_form.fxml");
     }
 }

@@ -4,9 +4,11 @@ import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TableView;
+import javafx.scene.input.MouseEvent;
 import org.jht.component.OrderTable;
 import org.jht.dto.Order;
 import org.jht.service.OrderService;
+import org.jht.support.Navigate;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -38,5 +40,10 @@ public class OrderController implements Initializable {
 
             }
         });
+    }
+
+    @FXML
+    void onClickAddOrder(MouseEvent mouseEvent){
+        Navigate.toWindow("Add Order","order_form.fxml");
     }
 }

@@ -4,6 +4,7 @@ import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TableView;
+import org.jetbrains.annotations.NotNull;
 import org.jht.component.CustomerTable;
 import org.jht.dto.Customer;
 import org.jht.service.CustomerService;
@@ -27,14 +28,14 @@ public class CustomerController implements Initializable {
 
         var customerTable = new CustomerTable(this.tableView);
 
-        this.customerService.getAll(new Callback<>() {
+        this.customerService.get(new Callback<>() {
             @Override
-            public void onResponse(Call<List<Customer>> call, Response<List<Customer>> response) {
+            public void onResponse(@NotNull Call<List<Customer>> call, @NotNull Response<List<Customer>> response) {
                 Platform.runLater(() -> customerTable.initialize(response.body()));
             }
 
             @Override
-            public void onFailure(Call<List<Customer>> call, Throwable throwable) {
+            public void onFailure(@NotNull Call<List<Customer>> call, @NotNull Throwable throwable) {
 
             }
         });

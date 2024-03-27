@@ -11,8 +11,6 @@ import org.jht.component.StaffComboBoxMapping;
 import org.jht.dto.Staff;
 
 import java.net.URL;
-import java.text.DateFormat;
-import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
 
 
@@ -27,14 +25,12 @@ public class PaySlipGeneratorFormController implements Initializable {
     @FXML
     private DatePicker fxEndDatePicker;
 
-    private final StaffComboBoxMapping staffComboBoxMapping = new StaffComboBoxMapping();
-
     protected static final Logger logger = LogManager.getLogger(PaySlipGeneratorFormController.class);
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
-        this.staffComboBoxMapping.mapStaff(fxStaffComboBox);
+        StaffComboBoxMapping.map(fxStaffComboBox);
     }
 
     @FXML

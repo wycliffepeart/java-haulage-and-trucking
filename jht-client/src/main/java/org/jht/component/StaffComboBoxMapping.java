@@ -14,14 +14,16 @@ import java.util.Objects;
 
 public class StaffComboBoxMapping {
 
-    private final StaffService staffService = new StaffService();
 
-    private String format(Staff staff) {
+    private static String format(Staff staff) {
         return String.format("%s | %s %s", staff.getTrn(), staff.getFirstName(), staff.getLastName());
     }
 
-    public void mapStaff(ComboBox<Staff> comboBox) {
-        this.staffService.get(new Callback<>() {
+    public static void map(ComboBox<Staff> comboBox) {
+
+        final StaffService staffService = new StaffService();
+
+        staffService.get(new Callback<>() {
             @Override
             public void onResponse(@NotNull Call<List<Staff>> call, @NotNull Response<List<Staff>> response) {
                 if (response.body() != null) {

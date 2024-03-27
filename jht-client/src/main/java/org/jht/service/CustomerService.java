@@ -38,7 +38,7 @@ public class CustomerService {
      *
      * @param callback the callback to be invoked when the request completes
      */
-    public void getAll(Callback<List<Customer>> callback) {
+    public void get (Callback<List<Customer>> callback) {
         HttpClient.use(CustomerRepository.class).get().enqueue(callback);
     }
 

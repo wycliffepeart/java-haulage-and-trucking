@@ -5,7 +5,6 @@ import java.util.List;
 
 public class Data {
 
-
     public static List<String> getParishes(){
         List<String> jamaicaParishes = new ArrayList<>();
         jamaicaParishes.add("Kingston");

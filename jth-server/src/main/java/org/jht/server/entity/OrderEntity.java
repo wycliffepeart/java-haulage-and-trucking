@@ -22,8 +22,6 @@ public class OrderEntity {
 
     private String invoiceNumber;
 
-    private double rate;
-
     @CreatedDate
     private Date createdAt;
 

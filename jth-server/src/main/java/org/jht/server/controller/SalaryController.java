@@ -51,7 +51,7 @@ public class SalaryController {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
 
-        var salaryTotal = orders.stream().mapToDouble(e -> (e.getRate() * e.getRoute().getDistance()) * 0.3).sum();
+        var salaryTotal = orders.stream().mapToDouble(e -> (e.getRoute().getRate() * e.getRoute().getDistance()) * 0.3).sum();
 
         var salary = this.salaryRepository.save(new Salary().setSalary(salaryTotal));
 

@@ -58,7 +58,6 @@ public class Seeder {
     public List<OrderEntity> getFakeOrderEntities(int limit) {
         return Stream.generate(() -> new OrderEntity()
                 .setInvoiceNumber(String.valueOf(faker.number().randomNumber(9, true)))
-                .setRate(faker.number().randomDouble(2, 10, 100))
                 .setRoute(getRoute())
                 .setAdmin(getStaff())
                 .setDriver(getStaff())
