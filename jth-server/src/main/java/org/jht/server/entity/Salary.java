@@ -8,8 +8,8 @@ import lombok.experimental.Accessors;
 import java.util.Date;
 import java.util.List;
 
-@Getter()
-@Setter()
+@Getter
+@Setter
 @Entity
 @Accessors(chain = true)
 public class Salary {
@@ -31,9 +31,9 @@ public class Salary {
     @OneToMany(cascade = CascadeType.ALL)
     private List<OrderEntity> orderEntities;
 
-    @OneToOne(cascade = CascadeType.ALL, optional = false)
+    @OneToOne(cascade = CascadeType.ALL)
     private Staff staff;
 
-    @OneToOne(cascade = CascadeType.ALL, optional = false)
-    private Staff preparedBy;
+    @OneToOne(cascade = CascadeType.ALL)
+    private Staff admin;
 }

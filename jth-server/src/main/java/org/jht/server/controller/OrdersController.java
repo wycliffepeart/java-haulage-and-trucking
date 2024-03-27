@@ -3,9 +3,7 @@ package org.jht.server.controller;
 import org.jht.server.entity.OrderEntity;
 import org.jht.server.repository.OrderRepository;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -17,6 +15,11 @@ public class OrdersController {
 
     public OrdersController(OrderRepository orderRepository) {
         this.orderRepository = orderRepository;
+    }
+
+    @PostMapping
+    public ResponseEntity<OrderEntity> post(@RequestBody OrderEntity order){
+        return ResponseEntity.ok(this.orderRepository.save(order));
     }
 
     @GetMapping

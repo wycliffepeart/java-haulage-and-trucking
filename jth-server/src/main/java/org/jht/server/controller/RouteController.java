@@ -3,9 +3,7 @@ package org.jht.server.controller;
 import org.jht.server.entity.Route;
 import org.jht.server.repository.RouteRepository;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -19,9 +17,13 @@ public class RouteController {
         this.routeRepository = routeRepository;
     }
 
+    @PostMapping
+    public ResponseEntity<Route> post(@RequestBody Route route){
+        return ResponseEntity.ok(this.routeRepository.save(route));
+    }
 
     @GetMapping
-    public ResponseEntity<List<Route>> getAll(){
+    public ResponseEntity<List<Route>> get(){
         return ResponseEntity.ok(this.routeRepository.findAll());
     }
 }

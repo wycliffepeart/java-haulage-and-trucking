@@ -37,7 +37,7 @@ public class Seeder {
 
         this.customerRepository.saveAll(seedCustomer());
         this.staffRepository.saveAll(getStaffFakeList());
-        this.orderRepository.saveAll(getFakeOrderEntities());
+        this.orderRepository.saveAll(getFakeOrderEntities(50));
         this.salaryRepository.saveAll(getFakeSalaryList());
         this.routeRepository.saveAll(getFakeRouteList());
     }
@@ -55,16 +55,18 @@ public class Seeder {
         return Stream.generate(this::getSalary).limit(50).collect(Collectors.toList());
     }
 
-    public List<OrderEntity> getFakeOrderEntities() {
+    public List<OrderEntity> getFakeOrderEntities(int limit) {
         return Stream.generate(() -> new OrderEntity()
                 .setInvoiceNumber(String.valueOf(faker.number().randomNumber(9, true)))
                 .setRate(faker.number().randomDouble(2, 10, 100))
+                .setRoute(getRoute())
                 .setAdmin(getStaff())
                 .setDriver(getStaff())
+                .setCreatedAt(new Date())
                 .setCustomer(getCustomer())
                 .setSourceAddress(getAddress())
                 .setDestinationAddress(getAddress())
-        ).limit(50).collect(Collectors.toList());
+        ).limit(limit).collect(Collectors.toList());
     }
 
     public List<Route> getFakeRouteList(){
@@ -85,7 +87,8 @@ public class Seeder {
                 .setSalary(faker.number().randomDouble(2, 100000, 100000))
                 .setId(faker.number().randomDigit())
                 .setStaff(getStaff())
-                .setPreparedBy(getStaff())
+                .setAdmin(getStaff())
+                .setOrderEntities(getFakeOrderEntities(2))
                 .setEndDate(new Date())
                 .setStartDate(new Date())
                 .setUpdatedAt(faker.date().birthday())

@@ -28,7 +28,10 @@ public class OrderEntity {
     private Date createdAt;
 
     @LastModifiedDate
-    private Date updatedAt;
+    private Date updatedAt = new Date();
+
+    @OneToOne(cascade = CascadeType.ALL)
+    private Route route;
 
     @OneToOne(cascade = CascadeType.ALL)
     private Staff driver;

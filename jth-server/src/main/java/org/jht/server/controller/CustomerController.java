@@ -3,9 +3,7 @@ package org.jht.server.controller;
 import org.jht.server.entity.Customer;
 import org.jht.server.repository.CustomerRepository;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -17,6 +15,11 @@ public class CustomerController {
 
     public CustomerController(CustomerRepository customerRepository) {
         this.customerRepository = customerRepository;
+    }
+
+    @PostMapping()
+    ResponseEntity<Customer> post(@RequestBody Customer customer) {
+        return ResponseEntity.ok(this.customerRepository.save(customer));
     }
 
     @GetMapping()
