@@ -11,7 +11,7 @@ import lombok.experimental.Accessors;
 @AllArgsConstructor
 @RequiredArgsConstructor
 @Accessors(chain = true)
-public class CreateOrderDTO {
+public class OrderRequestBody {
     private String invoiceNumber;
     private String createdAt;
     private String updatedAt;

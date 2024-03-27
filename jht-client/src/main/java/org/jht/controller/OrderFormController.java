@@ -1,5 +1,6 @@
 package org.jht.controller;
 
+import com.google.gson.GsonBuilder;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ComboBox;
@@ -117,7 +118,7 @@ public class OrderFormController implements Initializable {
                 .setPostOffice(destinationAddressPostOffice)
                 .setParish(destinationAddressParish);
 
-        var order = new CreateOrderDTO()
+        var order = new OrderRequestBody()
                 .setRouteId(role.getId())
                 .setCustomerId(customer.getId()).
                 setDriverId(driver.getId())
@@ -126,7 +127,7 @@ public class OrderFormController implements Initializable {
                 .setDestinationAddress(destinationAddress);
 
 
-        logger.info(order);
+        logger.info("Create Order {}", new GsonBuilder().setPrettyPrinting().create().toJson(order));
 
     }
 }

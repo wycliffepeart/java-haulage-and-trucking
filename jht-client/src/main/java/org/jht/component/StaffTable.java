@@ -14,6 +14,8 @@ import java.util.List;
 
 public class StaffTable {
 
+    public static ObservableList<Staff> data;
+
     private final TableView<Staff> tableView;
 
     public StaffTable(TableView<Staff> tableView) {
@@ -105,7 +107,7 @@ public class StaffTable {
                 deleteStaff
         );
 
-        ObservableList<Staff> data = FXCollections.observableArrayList(staffList);
+        data = FXCollections.observableArrayList(staffList);
 
         tableView.setItems(data);
     }

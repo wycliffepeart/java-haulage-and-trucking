@@ -2,6 +2,7 @@ package org.jht.server.controller;
 
 import org.jht.server.entity.Staff;
 import org.jht.server.repository.StaffRepository;
+import org.jht.server.support.Role;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -18,12 +19,15 @@ public class StaffController {
     }
 
     @PostMapping
-    public ResponseEntity<Staff> post(@RequestBody Staff staff){
+    public ResponseEntity<Staff> post(@RequestBody Staff staff) {
         return ResponseEntity.ok(this.staffRepository.save(staff));
     }
 
     @GetMapping
-    public ResponseEntity<List<Staff>> get(){
+    public ResponseEntity<List<Staff>> get(@RequestParam(required = false) Role role) {
+
+        if (role != null) return ResponseEntity.ok(this.staffRepository.findAllByRole(role));
+
         return ResponseEntity.ok(this.staffRepository.findAll());
     }
 }
