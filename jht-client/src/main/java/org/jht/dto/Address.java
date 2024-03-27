@@ -2,17 +2,19 @@ package org.jht.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.experimental.Accessors;
 
 @Getter()
 @Setter()
 @AllArgsConstructor
+@NoArgsConstructor
 @Accessors(chain = true)
 public class Address {
-    private final int id;
-    private final String lineOne;
-    private final String lineTwo;
-    private final String parish;
-    private final String postOffice;
+    private int id;
+    private String lineOne;
+    private String lineTwo;
+    private String parish;
+    private String postOffice;
 }

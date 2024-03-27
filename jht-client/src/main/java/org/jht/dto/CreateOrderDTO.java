@@ -1,27 +1,24 @@
 package org.jht.dto;
 
-
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 import lombok.experimental.Accessors;
 
-@Getter()
-@Setter()
+@Getter
+@Setter
 @AllArgsConstructor
 @RequiredArgsConstructor
 @Accessors(chain = true)
-public class Order {
-    private int id;
+public class CreateOrderDTO {
     private String invoiceNumber;
-    private Double rate;
     private String createdAt;
     private String updatedAt;
-    private Route route;
-    private Staff driver;
-    private Staff admin;
-    private Customer customer;
+    private long routeId;
+    private long driverId;
+    private long adminId;
+    private long customerId;
     private Address sourceAddress;
     private Address destinationAddress;
 }

@@ -59,13 +59,13 @@
                   <VBox layoutX="26.0" layoutY="450.0" spacing="10.0">
                      <children>
                         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Line One" />
-                        <TextField />
+                        <TextField fx:id="fxSourceLineOneTextField" />
                      </children>
                   </VBox>
                   <VBox layoutX="26.0" layoutY="584.0" spacing="10.0">
                      <children>
                         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Line Two" />
-                        <TextField />
+                        <TextField fx:id="fxSourceLineTwoTextField" />
                      </children>
                   </VBox>
                   <VBox layoutX="26.0" layoutY="652.0" spacing="10.0">
@@ -77,7 +77,7 @@
                   <VBox layoutX="26.0" layoutY="718.0" spacing="10.0">
                      <children>
                         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Post Office" />
-                        <TextField />
+                        <TextField fx:id="fxSourcePostOfficetextField" />
                      </children>
                   </VBox>
                   <VBox layoutX="26.0" layoutY="296.0" spacing="5.0">
@@ -97,13 +97,13 @@
                   <VBox layoutX="26.0" layoutY="338.0" spacing="10.0">
                      <children>
                         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Line One" />
-                        <TextField />
+                        <TextField fx:id="fxDestinationLineOneTextField" />
                      </children>
                   </VBox>
                   <VBox layoutX="26.0" layoutY="407.0" spacing="10.0">
                      <children>
                         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Line Two" />
-                        <TextField />
+                        <TextField fx:id="fxDestinationLineTwoTextField" />
                      </children>
                   </VBox>
                   <VBox layoutX="26.0" layoutY="476.0" spacing="10.0">
@@ -115,7 +115,7 @@
                   <VBox layoutX="26.0" layoutY="544.0" spacing="10.0">
                      <children>
                         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Post Office" />
-                        <TextField />
+                        <TextField fx:id="fxDestinationPostOfficetextField" />
                      </children>
                   </VBox>
                </children>
@@ -127,7 +127,7 @@
       </ScrollPane>
       <HBox alignment="BOTTOM_RIGHT" spacing="10.0">
          <children>
-            <Button mnemonicParsing="false" style="-fx-background-color: #cfe2ff;" text="Create" textFill="#084298">
+            <Button mnemonicParsing="false" onMouseClicked="#onClickCreateOrderListener" style="-fx-background-color: #cfe2ff;" text="Create" textFill="#084298">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
