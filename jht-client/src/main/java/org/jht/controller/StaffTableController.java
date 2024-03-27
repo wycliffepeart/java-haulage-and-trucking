@@ -34,7 +34,7 @@ public class StaffTableController implements Initializable {
 
         var stafftable = new StaffTable(this.tableView);
 
-        this.service.getAll(new Callback<>() {
+        this.service.get(new Callback<>() {
             @Override
             public void onResponse(@NotNull Call<List<Staff>> call, @NotNull Response<List<Staff>> response) {
                 Platform.runLater(() -> stafftable.initialize(response.body()));

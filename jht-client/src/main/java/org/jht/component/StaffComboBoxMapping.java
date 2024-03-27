@@ -21,7 +21,7 @@ public class StaffComboBoxMapping {
     }
 
     public void mapStaff(ComboBox<Staff> comboBox) {
-        this.staffService.getAll(new Callback<>() {
+        this.staffService.get(new Callback<>() {
             @Override
             public void onResponse(@NotNull Call<List<Staff>> call, @NotNull Response<List<Staff>> response) {
                 if (response.body() != null) {

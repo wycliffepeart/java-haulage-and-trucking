@@ -11,6 +11,8 @@ import org.jht.component.StaffComboBoxMapping;
 import org.jht.dto.Staff;
 
 import java.net.URL;
+import java.text.DateFormat;
+import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
 
 
@@ -37,12 +39,11 @@ public class PaySlipGeneratorFormController implements Initializable {
 
     @FXML
     void fxOnClickGeneratePaySlip(MouseEvent event) {
-        logger.info("LoG");
 
         var staff = fxStaffComboBox.getValue();
         var startDate = fxStartDatePicker.getValue();
         var endDate = fxEndDatePicker.getValue();
 
-        System.out.println("Hello" + staff.getFirstName());
+        logger.info("{} {} {}", staff, startDate, endDate);
     }
 }

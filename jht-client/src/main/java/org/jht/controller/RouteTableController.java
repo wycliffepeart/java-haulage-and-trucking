@@ -28,7 +28,7 @@ public class RouteTableController implements Initializable {
 
         var routeTable = new RouteTable(tableView);
 
-        this.routeService.getAll(new Callback<>() {
+        this.routeService.get(new Callback<>() {
             @Override
             public void onResponse(@NotNull Call<List<Route>> call, @NotNull Response<List<Route>> response) {
                 Platform.runLater(() -> routeTable.initialize(response.body()));

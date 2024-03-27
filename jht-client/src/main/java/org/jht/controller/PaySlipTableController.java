@@ -49,8 +49,6 @@ public class PaySlipTableController implements Initializable {
 
             @Override
             public void onFailure(@NotNull Call<List<PaySlip>> call, @NotNull Throwable throwable) {
-                System.out.println("Error");
-
                 throwable.printStackTrace();
             }
         });

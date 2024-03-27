@@ -5,21 +5,29 @@ import org.jht.support.HttpClient;
 import org.repository.RouteRepository;
 import retrofit2.Callback;
 
-import java.io.IOException;
 import java.util.List;
 
+/**
+ * RouteService is a class that provides methods for retrieving routes.
+ */
 public class RouteService {
 
-    public List<Route> getAll(){
-
-        try {
-            return HttpClient.use(RouteRepository.class).getRoutes().execute().body();
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
+    /**
+     * Retrieves all routes asynchronously.
+     *
+     * @param callback a callback that will be invoked with the retrieved routes
+     */
+    public void get(Callback<List<Route>> callback){
+        HttpClient.use(RouteRepository.class).get().enqueue(callback);
     }
 
-    public void getAll(Callback<List<Route>> callback){
-        HttpClient.use(RouteRepository.class).getRoutes().enqueue(callback);
+    /**
+     * Sends a POST request to the specified route using the provided callback.
+     *
+     * @param route the Route object containing the route to be posted
+     * @param callback the callback to be invoked with the response
+     */
+    public void post(Route route, Callback<Route> callback){
+        HttpClient.use(RouteRepository.class).post(route).enqueue(callback);
     }
 }

@@ -5,21 +5,30 @@ import org.jht.support.HttpClient;
 import org.repository.StaffRepository;
 import retrofit2.Callback;
 
-import java.io.IOException;
 import java.util.List;
 
+/**
+ * The StaffService class provides methods for managing staff members.
+ */
 public class StaffService {
 
-    public List<Staff> getAll() {
-        try {
-            return HttpClient.use(StaffRepository.class).staffList().execute().body();
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
+    /**
+     * Retrieves all staff members from the server.
+     *
+     * @param callback The callback function to handle the response.
+     */
+    public void get(Callback<List<Staff>> callback) {
+        HttpClient.use(StaffRepository.class).get().enqueue(callback);
     }
 
-    public void getAll(Callback<List<Staff>> callback) {
-        HttpClient.use(StaffRepository.class).staffList().enqueue(callback);
+    /**
+     * Performs a POST request to create a new staff member.
+     *
+     * @param staff    The staff member to be created.
+     * @param callback The callback function to handle the response.
+     */
+    public void post(Staff staff, Callback<Staff> callback) {
+        HttpClient.use(StaffRepository.class).post(staff).enqueue(callback);
     }
 
 }

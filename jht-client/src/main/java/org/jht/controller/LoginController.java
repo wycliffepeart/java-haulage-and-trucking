@@ -135,8 +135,6 @@ public class LoginController implements Initializable {
     @FXML
     private void onEnterIdNumber(KeyEvent keyEvent) {
 
-        System.out.println(fxIdNumber.getText());
-
         if (validateIdNumber()) userEntity.setIdNumber(fxIdNumber.getText());
     }
 
@@ -161,8 +159,6 @@ public class LoginController implements Initializable {
      */
     @FXML
     private void onEnterPassword(KeyEvent keyEvent) {
-
-        System.out.println(fxPassword.getText());
 
         if (validatePassword()) userEntity.setPassword(fxPassword.getText());
 
@@ -220,7 +216,6 @@ public class LoginController implements Initializable {
     @FXML
     private void onClickForgetPassword(MouseEvent event) {
 
-        System.out.println("Forget Password");
     }
 
     /**

@@ -27,7 +27,7 @@ public class OrderController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         var orderTable = new OrderTable(this.tableView);
 
-        this.orderService.getAll(new Callback<>() {
+        this.orderService.get(new Callback<>() {
             @Override
             public void onResponse(Call<List<Order>> call, Response<List<Order>> response) {
                 Platform.runLater(() -> orderTable.initialize(response.body()));

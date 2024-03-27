@@ -23,5 +23,6 @@ module org.jht {
     opens org.jht.support to com.google.gson;
     opens org.jht.controller to javafx.fxml;
     opens org.jht.component to javafx.fxml;
+
     exports org.jht;
 }

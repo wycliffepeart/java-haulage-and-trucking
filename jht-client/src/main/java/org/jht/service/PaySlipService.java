@@ -8,19 +8,27 @@ import retrofit2.Callback;
 import java.io.IOException;
 import java.util.List;
 
+/**
+ * A service class for managing pay slips.
+ */
 public class PaySlipService {
 
-
-    public List<PaySlip> getAll() {
-        try {
-            return HttpClient.use(PaySlipRepository.class).getSalaries().execute().body();
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
+    /**
+     * Fetches all pay slips.
+     *
+     * @param callback The callback to be invoked when the operation completes.
+     */
+    public void getAll(Callback<List<PaySlip>> callback) {
+        HttpClient.use(PaySlipRepository.class).get().enqueue(callback);
     }
 
-
-    public void getAll(Callback<List<PaySlip>> callback) {
-        HttpClient.use(PaySlipRepository.class).getSalaries().enqueue(callback);
+    /**
+     * Posts the given pay slip to the server.
+     *
+     * @param paySlip  The pay slip to be posted.
+     * @param callback The callback to be invoked when the operation completes.
+     */
+    public void post(PaySlip paySlip, Callback<PaySlip> callback) {
+        HttpClient.use(PaySlipRepository.class).post(paySlip).enqueue(callback);
     }
 }

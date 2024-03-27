@@ -3,9 +3,7 @@ package org.jht.server.controller;
 import org.jht.server.entity.Staff;
 import org.jht.server.repository.StaffRepository;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -19,8 +17,13 @@ public class StaffController {
         this.staffRepository = staffRepository;
     }
 
+    @PostMapping
+    public ResponseEntity<Staff> post(@RequestBody Staff staff){
+        return ResponseEntity.ok(this.staffRepository.save(staff));
+    }
+
     @GetMapping
-    public ResponseEntity<List<Staff>> all(){
+    public ResponseEntity<List<Staff>> get(){
         return ResponseEntity.ok(this.staffRepository.findAll());
     }
 }
