@@ -1,32 +1,26 @@
 package org.jht.dto;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.experimental.Accessors;
 
-import java.util.Date;
-
 @Getter()
 @Setter()
-@AllArgsConstructor
 @Accessors(chain = true)
 public class Route {
 
-    private final int id;
+    private int id;
 
-    private final String description;
+    private String route;
 
-    private final String sourceParish;
+    private int distance;
 
-    private final String destinationParish;
+    private double rate;
 
-    private final int distance;
+    private String description;
 
-    private final double rate;
+    private String createdAt;
 
-    private final String createdAt;
-
-    private final String updatedAt;
+    private String updatedAt;
 
 }

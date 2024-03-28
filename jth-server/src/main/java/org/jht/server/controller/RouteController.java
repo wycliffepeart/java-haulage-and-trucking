@@ -5,6 +5,8 @@ import org.jht.server.repository.RouteRepository;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDate;
+import java.util.Date;
 import java.util.List;
 
 @RestController
@@ -18,12 +20,13 @@ public class RouteController {
     }
 
     @PostMapping
-    public ResponseEntity<Route> post(@RequestBody Route route){
+    public ResponseEntity<Route> post(@RequestBody Route route) {
+        route.setCreatedAt(LocalDate.now());
         return ResponseEntity.ok(this.routeRepository.save(route));
     }
 
     @GetMapping
-    public ResponseEntity<List<Route>> get(){
+    public ResponseEntity<List<Route>> get() {
         return ResponseEntity.ok(this.routeRepository.findAll());
     }
 }

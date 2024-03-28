@@ -6,6 +6,10 @@ import org.jht.server.support.Role;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.util.Date;
 import java.util.List;
 
 @RestController
@@ -19,8 +23,15 @@ public class StaffController {
     }
 
     @PostMapping
-    public ResponseEntity<Staff> post(@RequestBody Staff staff) {
+    public ResponseEntity<Staff> post(@RequestBody Staff staff) throws ParseException {
+        staff.setCreatedAt(LocalDate.now());
         return ResponseEntity.ok(this.staffRepository.save(staff));
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Boolean> delete(@PathVariable long id) {
+        this.staffRepository.deleteById(id);
+        return ResponseEntity.ok(true);
     }
 
     @GetMapping

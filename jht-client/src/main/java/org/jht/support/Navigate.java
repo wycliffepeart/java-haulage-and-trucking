@@ -8,6 +8,8 @@ import javafx.stage.Stage;
 import org.jht.JHTApplication;
 
 import java.io.IOException;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class Navigate {
 

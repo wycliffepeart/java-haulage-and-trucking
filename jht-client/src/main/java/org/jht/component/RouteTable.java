@@ -27,11 +27,8 @@ public class RouteTable {
         TableColumn<Route, String> description = new TableColumn<>("Description");
         description.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getDescription()));
 
-        TableColumn<Route, String> sourceParish = new TableColumn<>("Source Parish");
-        sourceParish.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getSourceParish()));
-
-        TableColumn<Route, String> destinationParish = new TableColumn<>("Destination parish");
-        destinationParish.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getDestinationParish()));
+        TableColumn<Route, String> route = new TableColumn<>("Route");
+        route.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getRoute()));
 
         TableColumn<Route, String> rate = new TableColumn<>("Rate");
         rate.setCellValueFactory(cellData -> new SimpleObjectProperty<>(cellData.getValue().getRate()).asString());
@@ -50,11 +47,10 @@ public class RouteTable {
 
         tableView.getColumns().addAll(
                 idColumn,
-                description,
-                sourceParish,
-                destinationParish,
-                rate,
+                route,
                 distance,
+                rate,
+                description,
                 updatedAt,
                 createdAt,
                 deleteActions

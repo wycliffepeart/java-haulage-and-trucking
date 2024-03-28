@@ -1,23 +1,34 @@
 package org.jht.controller;
 
 import com.google.gson.GsonBuilder;
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.jetbrains.annotations.NotNull;
 import org.jht.component.CustomerComboBoxMapping;
 import org.jht.component.RouteComboBoxMapping;
 import org.jht.component.StaffComboBoxMapping;
 import org.jht.dto.*;
+import org.jht.service.OrderService;
 import org.jht.support.Data;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 
 public class OrderFormController implements Initializable {
+
+    @FXML
+    private Node fxRoot;
 
     @FXML
     private ComboBox<Route> fxRouteComboBox;
@@ -54,6 +65,9 @@ public class OrderFormController implements Initializable {
 
     @FXML
     private TextField fxDestinationPostOfficetextField;
+
+
+    private final OrderService orderService = new OrderService();
 
     /**
      * The logger variable is used for logging messages within the CustomerService class.
@@ -128,6 +142,20 @@ public class OrderFormController implements Initializable {
 
 
         logger.info("Create Order {}", new GsonBuilder().setPrettyPrinting().create().toJson(order));
+
+        this.orderService.post(order, new Callback<>() {
+            @Override
+            public void onResponse(@NotNull Call<Order> call, @NotNull Response<Order> response) {
+                logger.info("Status Code: {}", response.code());
+                logger.info("Success: {}", new GsonBuilder().setPrettyPrinting().create().toJson(response.body()));
+                Platform.runLater(() -> ((Stage) fxRoot.getScene().getWindow()).close());
+            }
+
+            @Override
+            public void onFailure(@NotNull Call<Order> call, @NotNull Throwable throwable) {
+                logger.info("Fail: {}", throwable.getMessage());
+            }
+        });
 
     }
 }

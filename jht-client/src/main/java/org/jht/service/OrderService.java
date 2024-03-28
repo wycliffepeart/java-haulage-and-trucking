@@ -1,6 +1,7 @@
 package org.jht.service;
 
 import org.jht.dto.Order;
+import org.jht.dto.OrderRequestBody;
 import org.jht.support.HttpClient;
 import org.repository.OrderRepository;
 import retrofit2.Callback;
@@ -27,7 +28,7 @@ public class OrderService {
      * @param order the order to be created
      * @param callback the callback to be notified when the request is complete
      */
-    public void post(Order order, Callback<Order> callback) {
+    public void post(OrderRequestBody order, Callback<Order> callback) {
         HttpClient.use(OrderRepository.class).post(order).enqueue(callback);
     }
 }

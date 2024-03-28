@@ -4,6 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.experimental.Accessors;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 @Getter
@@ -11,11 +12,11 @@ import java.util.Date;
 @Accessors(chain = true)
 public class GenerateSalaryDTO {
 
-    private int staffId;
+    private long staffId;
 
-    private int adminId;
+    private long adminId;
 
-    private Date startDate;
+    private LocalDate startDate;
 
-    private Date endDate;
+    private LocalDate endDate;
 }

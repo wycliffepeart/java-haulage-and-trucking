@@ -51,17 +51,11 @@ public class CustomerTable {
         TableColumn<Customer, String> addressPostOffice = new TableColumn<>("Address Post Office");
         addressPostOffice.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getAddress().getPostOffice()));
 
-        TableColumn<Customer, String> updatedAt = new TableColumn<>("Updated At");
-        updatedAt.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getUpdatedAt()));
-
         TableColumn<Customer, String> createdAt = new TableColumn<>("Created At");
         createdAt.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getCreatedAt()));
 
-        TableColumn<Customer, Button> viewOrderAction = new TableColumn<>("Actions");
-        viewOrderAction.setCellValueFactory(cellData -> new SimpleObjectProperty<>(new Button("View Orders")));
-
         TableColumn<Customer, Button> deleteStaff = new TableColumn<>("Actions");
-        deleteStaff.setCellValueFactory(cellData -> new SimpleObjectProperty<>(new Button("Delete Staff")));
+        deleteStaff.setCellValueFactory(cellData -> new SimpleObjectProperty<>(new Button("Delete")));
 
         tableView.getColumns().addAll(
                 idColumn,
@@ -74,9 +68,7 @@ public class CustomerTable {
                 addressLineTwo,
                 addressParish,
                 addressPostOffice,
-                updatedAt,
                 createdAt,
-                viewOrderAction,
                 deleteStaff
         );
 

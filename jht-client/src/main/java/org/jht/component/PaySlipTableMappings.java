@@ -60,17 +60,11 @@ public class PaySlipTableMappings {
         TableColumn<PaySlip, String> adminTrn = new TableColumn<>("Admin Tax Registration Number (TRN)");
         adminTrn.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getAdmin().getTrn()));
 
-        TableColumn<PaySlip, String> updatedAt = new TableColumn<>("Updated At");
-        updatedAt.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getUpdatedAt().toString()));
-
         TableColumn<PaySlip, String> createdAt = new TableColumn<>("Created At");
         createdAt.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getCreatedAt().toString()));
 
-        TableColumn<PaySlip, Button> viewOrderAction = new TableColumn<>("Actions");
-        viewOrderAction.setCellValueFactory(cellData -> new SimpleObjectProperty<>(new Button("View Orders")));
-
         TableColumn<PaySlip, Button> deleteStaff = new TableColumn<>("Actions");
-        deleteStaff.setCellValueFactory(cellData -> new SimpleObjectProperty<>(new Button("Delete Staff")));
+        deleteStaff.setCellValueFactory(cellData -> new SimpleObjectProperty<>(new Button("Delete")));
 
         tableView.getColumns().addAll(
                 idColumn,
@@ -86,9 +80,7 @@ public class PaySlipTableMappings {
                 adminFirstName,
                 adminLastName,
                 adminTrn,
-                updatedAt,
                 createdAt,
-                viewOrderAction,
                 deleteStaff
         );
 

@@ -12,7 +12,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<VBox fx:id="fxRoot" alignment="CENTER" focusTraversable="true" maxWidth="1.7976931348623157E308" prefWidth="600.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.jht.controller.OrderFormController">
+<VBox fx:id="fxRoot" alignment="CENTER" focusTraversable="true" maxWidth="1.7976931348623157E308" prefWidth="600.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.jht.controller.CustomerFormController">
    <children>
       <ScrollPane fitToWidth="true" hbarPolicy="NEVER" maxWidth="600.0" minWidth="600.0" prefWidth="600.0" VBox.vgrow="ALWAYS">
          <content>
@@ -20,31 +20,45 @@
                <children>
                   <VBox maxWidth="1.7976931348623157E308" spacing="10.0">
                      <children>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Customer" />
-                        <ComboBox fx:id="fxCustomerComboBox" maxWidth="1.7976931348623157E308" promptText="None" VBox.vgrow="ALWAYS" />
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Status" />
+                        <ComboBox fx:id="fxStatus" maxWidth="1.7976931348623157E308" VBox.vgrow="ALWAYS" />
                      </children>
                   </VBox>
-                  <VBox layoutX="26.0" layoutY="26.0" maxWidth="1.7976931348623157E308" spacing="10.0">
+                  <VBox spacing="10.0">
                      <children>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Route" />
-                        <ComboBox fx:id="fxRouteComboBox" maxWidth="1.7976931348623157E308" promptText="None" VBox.vgrow="ALWAYS" />
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Company Name" />
+                        <TextField fx:id="fxCompanyName" />
                      </children>
                   </VBox>
-                  <VBox layoutX="26.0" layoutY="95.0" maxWidth="1.7976931348623157E308" spacing="10.0">
+                  <VBox spacing="5.0">
                      <children>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Admin" />
-                        <ComboBox fx:id="fxAdminComboBox" maxWidth="1.7976931348623157E308" promptText="None" VBox.vgrow="ALWAYS" />
+                        <Text fill="#434343" strokeType="OUTSIDE" strokeWidth="0.0" text="Contact Information">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font>
+                        </Text>
+                        <HBox>
+                           <children>
+                              <Separator HBox.hgrow="ALWAYS" />
+                           </children>
+                        </HBox>
                      </children>
                   </VBox>
-                  <VBox layoutX="26.0" layoutY="163.0" maxWidth="1.7976931348623157E308" spacing="10.0">
+                  <VBox layoutX="26.0" layoutY="229.0" spacing="10.0">
                      <children>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Driver" />
-                        <ComboBox fx:id="fxDriverComboBox" maxWidth="1.7976931348623157E308" promptText="None" VBox.vgrow="ALWAYS" />
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Phone Number" />
+                        <TextField fx:id="fxContactNumber" />
+                     </children>
+                  </VBox>
+                  <VBox layoutX="26.0" layoutY="365.0" spacing="10.0">
+                     <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Email Address" />
+                        <TextField fx:id="fxContactEmail" />
                      </children>
                   </VBox>
                   <VBox layoutX="26.0" layoutY="364.0" spacing="5.0">
                      <children>
-                        <Text fill="#434343" strokeType="OUTSIDE" strokeWidth="0.0" text="Source Address">
+                        <Text fill="#434343" strokeType="OUTSIDE" strokeWidth="0.0" text="Address Information">
                            <font>
                               <Font name="System Bold" size="14.0" />
                            </font>
@@ -58,31 +72,31 @@
                   </VBox>
                   <VBox layoutX="26.0" layoutY="450.0" spacing="10.0">
                      <children>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Line One" />
-                        <TextField fx:id="fxSourceLineOneTextField" />
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Address One" />
+                        <TextField fx:id="fxAddressLineOne" />
                      </children>
                   </VBox>
                   <VBox layoutX="26.0" layoutY="584.0" spacing="10.0">
                      <children>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Line Two" />
-                        <TextField fx:id="fxSourceLineTwoTextField" />
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Address Two" />
+                        <TextField fx:id="fxAddressLineTwo" />
                      </children>
                   </VBox>
                   <VBox layoutX="26.0" layoutY="652.0" spacing="10.0">
                      <children>
                         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Parish" />
-                        <ComboBox fx:id="fxSourceParish" maxWidth="1.7976931348623157E308" VBox.vgrow="ALWAYS" />
+                        <ComboBox fx:id="fxAddressParish" maxWidth="1.7976931348623157E308" VBox.vgrow="ALWAYS" />
                      </children>
                   </VBox>
                   <VBox layoutX="26.0" layoutY="718.0" spacing="10.0">
                      <children>
                         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Post Office" />
-                        <TextField fx:id="fxSourcePostOfficetextField" />
+                        <TextField fx:id="fxAddressPostOffice" />
                      </children>
                   </VBox>
-                  <VBox layoutX="26.0" layoutY="296.0" spacing="5.0">
+                  <VBox layoutX="26.0" layoutY="539.0" spacing="5.0">
                      <children>
-                        <Text fill="#434343" strokeType="OUTSIDE" strokeWidth="0.0" text="Destination Address">
+                        <Text fill="#434343" strokeType="OUTSIDE" strokeWidth="0.0" text="Next of Kin">
                            <font>
                               <Font name="System Bold" size="14.0" />
                            </font>
@@ -94,28 +108,22 @@
                         </HBox>
                      </children>
                   </VBox>
-                  <VBox layoutX="26.0" layoutY="338.0" spacing="10.0">
+                  <VBox layoutX="26.0" layoutY="785.0" spacing="10.0">
                      <children>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Line One" />
-                        <TextField fx:id="fxDestinationLineOneTextField" />
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Next of Kin First Name" />
+                        <TextField fx:id="fxNextOfKimFirstName" />
                      </children>
                   </VBox>
-                  <VBox layoutX="26.0" layoutY="407.0" spacing="10.0">
+                  <VBox layoutX="26.0" layoutY="896.0" spacing="10.0">
                      <children>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Line Two" />
-                        <TextField fx:id="fxDestinationLineTwoTextField" />
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Next of Kin Last Name" />
+                        <TextField fx:id="fxNextOfKinLastName" />
                      </children>
                   </VBox>
-                  <VBox layoutX="26.0" layoutY="476.0" spacing="10.0">
+                  <VBox layoutX="26.0" layoutY="964.0" spacing="10.0">
                      <children>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Parish" />
-                        <ComboBox fx:id="fxDestinationParish" maxWidth="1.7976931348623157E308" VBox.vgrow="ALWAYS" />
-                     </children>
-                  </VBox>
-                  <VBox layoutX="26.0" layoutY="544.0" spacing="10.0">
-                     <children>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Post Office" />
-                        <TextField fx:id="fxDestinationPostOfficetextField" />
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Next of Kin Contact Number" />
+                        <TextField fx:id="fxNextOfKinContactNumber" />
                      </children>
                   </VBox>
                </children>
@@ -127,7 +135,7 @@
       </ScrollPane>
       <HBox alignment="BOTTOM_RIGHT" spacing="10.0">
          <children>
-            <Button mnemonicParsing="false" onMouseClicked="#onClickCreateOrderListener" style="-fx-background-color: #cfe2ff;" text="Create" textFill="#084298">
+            <Button mnemonicParsing="false" onMouseClicked="#onClickCreateCustomer" style="-fx-background-color: #cfe2ff;" text="Create" textFill="#084298">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>

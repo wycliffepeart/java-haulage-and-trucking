@@ -16,7 +16,7 @@ public class Address {
 
     @Id
     @GeneratedValue
-    private int id;
+    private long id;
 
     private String lineOne;
 

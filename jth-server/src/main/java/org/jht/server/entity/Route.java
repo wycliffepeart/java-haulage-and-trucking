@@ -7,9 +7,8 @@ import jakarta.persistence.Id;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.experimental.Accessors;
-import org.springframework.data.annotation.CreatedDate;
-import org.springframework.data.annotation.LastModifiedDate;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 @Getter
@@ -20,22 +19,16 @@ public class Route {
 
     @Id
     @GeneratedValue
-    private int id;
+    private long id;
 
-    private String description;
-
-    private String sourceParish;
-
-    private String destinationParish;
+    private String route;
 
     private int distance;
 
     private double rate;
 
-    @CreatedDate
-    private Date createdAt;
+    private String description;
 
-    @LastModifiedDate
-    private Date updatedAt;
+    private LocalDate createdAt;
 
 }

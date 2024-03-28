@@ -28,7 +28,7 @@ public class OrderTable {
         companyName.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getCustomer().getCompanyName()));
 
         TableColumn<Order, String> rate = new TableColumn<>("Rate");
-        rate.setCellValueFactory(cellData -> new SimpleObjectProperty<Double>(cellData.getValue().getRate()).asString());
+        rate.setCellValueFactory(cellData -> new SimpleObjectProperty<Double>(cellData.getValue().getRoute().getRate()).asString());
 
         // Source Address
         TableColumn<Order, String> sourceAddressLineOne = new TableColumn<>("Source Address Line One");
@@ -56,18 +56,11 @@ public class OrderTable {
         TableColumn<Order, String> destinationAddressPostOffice = new TableColumn<>("Destination Address Post Office");
         destinationAddressPostOffice.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getSourceAddress().getPostOffice()));
 
-
-        TableColumn<Order, String> updatedAt = new TableColumn<>("Updated At");
-        updatedAt.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getUpdatedAt()));
-
         TableColumn<Order, String> createdAt = new TableColumn<>("Created At");
         createdAt.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getCreatedAt()));
 
-        TableColumn<Order, Button> viewOrderAction = new TableColumn<>("Actions");
-        viewOrderAction.setCellValueFactory(cellData -> new SimpleObjectProperty<>(new Button("View Orders")));
-
         TableColumn<Order, Button> deleteStaff = new TableColumn<>("Actions");
-        deleteStaff.setCellValueFactory(cellData -> new SimpleObjectProperty<>(new Button("Delete Staff")));
+        deleteStaff.setCellValueFactory(cellData -> new SimpleObjectProperty<>(new Button("Delete")));
 
         tableView.getColumns().addAll(
                 idColumn,
@@ -81,9 +74,7 @@ public class OrderTable {
                 destinationAddressLineTwo,
                 destinationAddressParish,
                 destinationAddressPostOffice,
-                updatedAt,
                 createdAt,
-                viewOrderAction,
                 deleteStaff
         );
 

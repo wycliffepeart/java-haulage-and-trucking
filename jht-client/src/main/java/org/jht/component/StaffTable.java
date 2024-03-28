@@ -4,11 +4,17 @@ import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.EventHandler;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.input.MouseEvent;
 import org.jht.dto.Route;
 import org.jht.dto.Staff;
+import org.jht.service.StaffService;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 import java.util.List;
 
@@ -17,6 +23,8 @@ public class StaffTable {
     public static ObservableList<Staff> data;
 
     private final TableView<Staff> tableView;
+
+    private final StaffService service = new StaffService();
 
     public StaffTable(TableView<Staff> tableView) {
         this.tableView = tableView;
@@ -72,9 +80,6 @@ public class StaffTable {
         TableColumn<Staff, String> addressPostOffice = new TableColumn<>("Address Post Office");
         addressPostOffice.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getAddress().getPostOffice()));
 
-        TableColumn<Staff, String> updatedAt = new TableColumn<>("Updated At");
-        updatedAt.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getUpdatedAt()));
-
         TableColumn<Staff, String> createdAt = new TableColumn<>("Created At");
         createdAt.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getCreatedAt()));
 
@@ -82,7 +87,21 @@ public class StaffTable {
         viewOrderAction.setCellValueFactory(cellData -> new SimpleObjectProperty<>(new Button("View Orders")));
 
         TableColumn<Staff, Button> deleteStaff = new TableColumn<>("Actions");
-        deleteStaff.setCellValueFactory(cellData -> new SimpleObjectProperty<>(new Button("Delete Staff")));
+        deleteStaff.setCellValueFactory(cellData -> {
+            var button = new Button("Delete");
+            button.setOnMouseClicked(event -> service.delete(cellData.getValue(), new Callback<>() {
+                @Override
+                public void onResponse(Call<Boolean> call, Response<Boolean> response) {
+                    tableView.getItems().remove(cellData.getValue());
+                }
+
+                @Override
+                public void onFailure(Call<Boolean> call, Throwable throwable) {
+
+                }
+            }));
+           return new SimpleObjectProperty<>(button);
+        });
 
         tableView.getColumns().addAll(
                 idColumn,
@@ -101,9 +120,7 @@ public class StaffTable {
                 nextOfKinFirstName,
                 nextOfKinLastName,
                 nextOfKinContactNumber,
-                updatedAt,
                 createdAt,
-                viewOrderAction,
                 deleteStaff
         );
 

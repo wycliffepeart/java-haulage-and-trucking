@@ -6,6 +6,7 @@ import lombok.Setter;
 import lombok.experimental.Accessors;
 
 import java.io.Serializable;
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 
@@ -17,17 +18,15 @@ public class Salary {
 
     @Id
     @GeneratedValue
-    private int id;
-
-    private Date startDate;
-
-    private Date endDate;
+    private long id;
 
     private double salary;
 
-    private Date createdAt;
+    private LocalDate startDate;
 
-    private Date updatedAt;
+    private LocalDate endDate;
+
+    private LocalDate createdAt;
 
     @OneToMany(cascade = CascadeType.ALL)
     private List<OrderEntity> orderEntities;

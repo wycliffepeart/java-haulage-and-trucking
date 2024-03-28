@@ -4,10 +4,12 @@ import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TableView;
+import javafx.scene.input.MouseEvent;
 import org.jetbrains.annotations.NotNull;
 import org.jht.component.CustomerTable;
 import org.jht.dto.Customer;
 import org.jht.service.CustomerService;
+import org.jht.support.Navigate;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -40,5 +42,10 @@ public class CustomerController implements Initializable {
             }
         });
 
+    }
+
+    @FXML
+    void onClickCreateCustomer(MouseEvent event){
+        Navigate.toWindow("Create Customer", "customer_form.fxml");
     }
 }

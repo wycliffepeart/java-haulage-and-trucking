@@ -56,7 +56,7 @@
                             <Insets />
                         </opaqueInsets>
                     </HBox>
-                    <Button alignment="CENTER" ellipsisString="" mnemonicParsing="false" prefHeight="26.0" prefWidth="111.0" style="-fx-background-color: #0d6efd; -fx-border-color: #0d6efd; -fx-border-radius: 10;" text="Add Customer" textFill="WHITE">
+                    <Button alignment="CENTER" ellipsisString="" mnemonicParsing="false" onMouseClicked="#onClickCreateCustomer" prefHeight="26.0" prefWidth="111.0" style="-fx-background-color: #0d6efd; -fx-border-color: #0d6efd; -fx-border-radius: 10;" text="Add Customer" textFill="WHITE">
                <font>
                   <Font name="System Bold Italic" size="13.0" />
                </font>

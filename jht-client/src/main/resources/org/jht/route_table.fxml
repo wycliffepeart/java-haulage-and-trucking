@@ -57,7 +57,7 @@
                             <Insets />
                         </opaqueInsets>
                     </HBox>
-                    <Button fx:id="fxAddStaffButton" alignment="CENTER" ellipsisString="" mnemonicParsing="false" prefHeight="26.0" prefWidth="111.0" style="-fx-background-color: #0d6efd; -fx-border-color: #0d6efd; -fx-border-radius: 10;" text="Add Route" textFill="WHITE">
+                    <Button fx:id="fxAddStaffButton" alignment="CENTER" ellipsisString="" mnemonicParsing="false" onMouseClicked="#fxOnClickCreateRoute" prefHeight="26.0" prefWidth="111.0" style="-fx-background-color: #0d6efd; -fx-border-color: #0d6efd; -fx-border-radius: 10;" text="Add Route" textFill="WHITE">
                <font>
                   <Font name="System Bold Italic" size="13.0" />
                </font>

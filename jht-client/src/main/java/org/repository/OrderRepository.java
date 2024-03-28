@@ -1,6 +1,7 @@
 package org.repository;
 
 import org.jht.dto.Order;
+import org.jht.dto.OrderRequestBody;
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
@@ -32,5 +33,5 @@ public interface OrderRepository {
      * which will post the Order object.
      */
     @POST("orders")
-    Call<Order> post(@Body Order order);
+    Call<Order> post(@Body OrderRequestBody order);
 }

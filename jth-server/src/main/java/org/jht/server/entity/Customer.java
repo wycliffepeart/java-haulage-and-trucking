@@ -7,6 +7,7 @@ import lombok.experimental.Accessors;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 @Getter
@@ -17,18 +18,14 @@ public class Customer {
 
     @Id
     @GeneratedValue
-    private int id;
+    private long id;
     private String status;
 
     private String companyName;
 
     private String contactPerson;
 
-    @CreatedDate
-    private Date createdAt;
-
-    @LastModifiedDate
-    private Date updatedAt;
+    private LocalDate createdAt;
 
     @OneToOne(cascade = CascadeType.ALL)
     private Contact contact;

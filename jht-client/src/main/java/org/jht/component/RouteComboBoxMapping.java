@@ -16,7 +16,7 @@ public class RouteComboBoxMapping {
 
 
     private static String format(Route route) {
-        return String.format("%s | %s", route.getId(), route.getDescription());
+        return String.format("%s | %s", route.getId(), route.getRoute());
     }
 
     public static void map(ComboBox<Route> comboBox) {
@@ -37,7 +37,7 @@ public class RouteComboBoxMapping {
                         @Override
                         public Route fromString(String string) {
                             System.out.println(string);
-                            return comboBox.getItems().filtered(staff -> Objects.equals(string, format(staff))).getFirst();
+                            return comboBox.getItems().filtered(route -> Objects.equals(string, format(route))).getFirst();
                         }
                     });
                 }

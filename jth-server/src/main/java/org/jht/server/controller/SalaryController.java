@@ -7,10 +7,16 @@ import org.jht.server.repository.SalaryRepository;
 import org.jht.server.repository.StaffRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.boot.json.GsonJsonParser;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.http.converter.json.GsonFactoryBean;
 import org.springframework.web.bind.annotation.*;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.util.Date;
 import java.util.List;
 
 @RestController
@@ -32,7 +38,7 @@ public class SalaryController {
     }
 
     @PostMapping
-    public ResponseEntity<Salary> post(@RequestBody GenerateSalaryDTO generateSalaryDTO) {
+    public ResponseEntity<Salary> post(@RequestBody GenerateSalaryDTO generateSalaryDTO) throws ParseException {
 
         var admin = this.staffRepository.findById(generateSalaryDTO.getAdminId());
         var staff = this.staffRepository.findById(generateSalaryDTO.getStaffId());
@@ -59,7 +65,8 @@ public class SalaryController {
                 .setAdmin(admin.get())
                 .setOrderEntities(orders)
                 .setStartDate(generateSalaryDTO.getStartDate())
-                .setEndDate(generateSalaryDTO.getEndDate());
+                .setEndDate(generateSalaryDTO.getEndDate())
+                .setCreatedAt(LocalDate.now());
 
         return ResponseEntity.ok(this.salaryRepository.save(salaryWithAttachedEntities));
     }

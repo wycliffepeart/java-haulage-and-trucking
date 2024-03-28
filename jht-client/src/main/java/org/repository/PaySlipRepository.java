@@ -1,5 +1,6 @@
 package org.repository;
 
+import org.jht.dto.GeneratePaySlipBody;
 import org.jht.dto.PaySlip;
 import retrofit2.Call;
 import retrofit2.http.Body;
@@ -32,5 +33,5 @@ public interface PaySlipRepository {
      * which will post the PaySlip object.
      */
     @POST("salaries")
-    Call<PaySlip> post(@Body PaySlip paySlip);
+    Call<PaySlip> post(@Body GeneratePaySlipBody paySlip);
 }

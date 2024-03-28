@@ -16,7 +16,7 @@ public class StaffComboBoxMapping {
 
 
     private static String format(Staff staff) {
-        return String.format("%s | %s %s", staff.getTrn(), staff.getFirstName(), staff.getLastName());
+        return String.format("%s | %s | %s %s", staff.getTrn(), staff.getRole().name(), staff.getFirstName(), staff.getLastName());
     }
 
     public static void map(ComboBox<Staff> comboBox) {
@@ -29,7 +29,7 @@ public class StaffComboBoxMapping {
                 if (response.body() != null) {
                     comboBox.getItems().addAll(response.body());
 
-                    comboBox.setConverter(new StringConverter<Staff>() {
+                    comboBox.setConverter(new StringConverter<>() {
                         @Override
                         public String toString(Staff staff) {
                             return format(staff);

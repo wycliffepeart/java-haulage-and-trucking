@@ -6,7 +6,6 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ComboBox;
-import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
@@ -16,10 +15,9 @@ import org.apache.logging.log4j.Logger;
 import org.jetbrains.annotations.NotNull;
 import org.jht.dto.Address;
 import org.jht.dto.Contact;
-import org.jht.dto.Staff;
-import org.jht.service.StaffService;
+import org.jht.dto.Customer;
+import org.jht.service.CustomerService;
 import org.jht.support.Data;
-import org.jht.support.Role;
 import org.jht.support.Status;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -34,7 +32,7 @@ import java.util.ResourceBundle;
  * related to the staff form. It implements the Initialize interface, which allows
  * it to initialize the form when it is loaded.
  */
-public class StaffFormController implements Initializable {
+public class CustomerFormController implements Initializable {
 
     @FXML
     VBox fxRoot;
@@ -43,19 +41,7 @@ public class StaffFormController implements Initializable {
     ComboBox<String> fxStatus;
 
     @FXML
-    ComboBox<String> fxRole;
-
-    @FXML
-    TextField fxFirstName;
-
-    @FXML
-    TextField fxLastName;
-
-    @FXML
-    TextField fxTrn;
-
-    @FXML
-    DatePicker fxDateOfBirth;
+    TextField fxCompanyName;
 
     @FXML
     TextField fxContactNumber;
@@ -84,7 +70,7 @@ public class StaffFormController implements Initializable {
     @FXML
     TextField fxNextOfKinContactNumber;
 
-    private final StaffService staffService = new StaffService();
+    private final CustomerService customerService = new CustomerService();
 
     /**
      * The logger variable is used for logging messages within the CustomerService class.
@@ -102,20 +88,14 @@ public class StaffFormController implements Initializable {
      * - Logger: org.apache.logging.log4j.Logger
      * - LogManager: org.apache.logging.log4j.LogManager
      */
-    protected static final Logger logger = LogManager.getLogger(StaffFormController.class);
+    protected static final Logger logger = LogManager.getLogger(CustomerFormController.class);
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
-        // Add Rules
-        fxRole.getItems().add(Role.STAFF.name());
-        fxRole.getItems().add(Role.ADMIN.name());
-
-        // Add Status
         fxStatus.getItems().add(Status.ACTIVE.name());
         fxStatus.getItems().add(Status.INACTIVE.name());
 
-        // Add Parishes
         fxAddressParish.getItems().addAll(Data.getParishes());
     }
 
@@ -125,15 +105,11 @@ public class StaffFormController implements Initializable {
      * @param event The MouseEvent that triggered the event
      */
     @FXML
-    void onClickCreate(MouseEvent event){
+    void onClickCreateCustomer(MouseEvent event) {
 
-        var staff = new Staff()
-                .setStatus(fxStatus.getValue())
-                .setRole(Objects.equals(fxRole.getValue(), Role.STAFF.name()) ? Role.STAFF : Role.ADMIN)
-                .setFirstName(fxFirstName.getText())
-                .setLastName(fxLastName.getText())
-                .setDob(fxDateOfBirth.getValue().toString())
-                .setTrn(fxTrn.getText())
+        var customer = new Customer()
+                .setStatus(Objects.equals(fxStatus.getValue(), Status.ACTIVE.name()) ? Status.ACTIVE.name() : Status.INACTIVE.name())
+                .setCompanyName(fxCompanyName.getText())
                 .setNextOfKinFirstName(fxNextOfKimFirstName.getText())
                 .setNextOfKinLastName(fxNextOfKinLastName.getText())
                 .setNextOfKinContactNumber(fxNextOfKinContactNumber.getText());
@@ -148,20 +124,20 @@ public class StaffFormController implements Initializable {
                 .setNumber(fxContactNumber.getText())
                 .setEmail(fxContactEmail.getText());
 
-        staff.setAddress(address);
-        staff.setContact(contact);
+        customer.setAddress(address);
+        customer.setContact(contact);
 
-        logger.info("Create Staff {}", new GsonBuilder().setPrettyPrinting().create().toJson(staff));
+        logger.info("Create Customer {}", new GsonBuilder().setPrettyPrinting().create().toJson(customer));
 
-        this.staffService.post(staff, new Callback<>() {
+        this.customerService.post(customer, new Callback<>() {
             @Override
-            public void onResponse(@NotNull Call<Staff> call, @NotNull Response<Staff> response) {
+            public void onResponse(@NotNull Call<Customer> call, @NotNull Response<Customer> response) {
                 logger.info("Success: {}", new GsonBuilder().setPrettyPrinting().create().toJson(response.body()));
                 Platform.runLater(() -> ((Stage) fxRoot.getScene().getWindow()).close());
             }
 
             @Override
-            public void onFailure(@NotNull Call<Staff> call, @NotNull Throwable throwable) {
+            public void onFailure(@NotNull Call<Customer> call, @NotNull Throwable throwable) {
                 logger.info("Fail: {}", throwable.getMessage());
             }
         });

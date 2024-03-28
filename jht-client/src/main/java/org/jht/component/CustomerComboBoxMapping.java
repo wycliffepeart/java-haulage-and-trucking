@@ -36,7 +36,7 @@ public class CustomerComboBoxMapping {
                         @Override
                         public Customer fromString(String string) {
                             System.out.println(string);
-                            return comboBox.getItems().filtered(staff -> Objects.equals(string, format(staff))).getFirst();
+                            return comboBox.getItems().filtered(customer -> Objects.equals(string, format(customer))).getFirst();
                         }
                     });
                 }

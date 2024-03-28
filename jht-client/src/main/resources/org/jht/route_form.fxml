@@ -4,41 +4,42 @@
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
-<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<VBox fx:id="fxRoot" alignment="CENTER" focusTraversable="true" maxWidth="1.7976931348623157E308" prefWidth="600.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.jht.controller.PaySlipGeneratorController">
+<VBox fx:id="fxRoot" alignment="CENTER" focusTraversable="true" maxWidth="1.7976931348623157E308" prefWidth="600.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.jht.controller.RouteFormController">
    <children>
       <ScrollPane fitToWidth="true" hbarPolicy="NEVER" maxWidth="600.0" minWidth="600.0" prefWidth="600.0" VBox.vgrow="ALWAYS">
          <content>
             <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" spacing="16.0">
                <children>
-                  <VBox layoutX="26.0" layoutY="26.0" maxWidth="1.7976931348623157E308" spacing="10.0">
-                     <children>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Admin" />
-                        <ComboBox fx:id="fxAdminComboBox" maxWidth="1.7976931348623157E308" promptText="Select Staff" VBox.vgrow="ALWAYS" />
-                     </children>
-                  </VBox>
                   <VBox maxWidth="1.7976931348623157E308" spacing="10.0">
                      <children>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Staff" />
-                        <ComboBox fx:id="fxStaffComboBox" maxWidth="1.7976931348623157E308" promptText="Select Staff" VBox.vgrow="ALWAYS" />
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Route" />
+                        <ComboBox fx:id="fxRoute" maxWidth="1.7976931348623157E308" promptText="None" VBox.vgrow="ALWAYS" />
                      </children>
                   </VBox>
-                  <VBox layoutX="26.0" layoutY="232.0" spacing="10.0">
+                  <VBox layoutX="26.0" layoutY="164.0" spacing="10.0">
                      <children>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Start Date" />
-                        <DatePicker fx:id="fxStartDatePicker" maxWidth="1.7976931348623157E308" />
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Distance" />
+                        <TextField fx:id="fxDistance" />
                      </children>
                   </VBox>
                   <VBox layoutX="26.0" layoutY="161.0" spacing="10.0">
                      <children>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="End Date" />
-                        <DatePicker fx:id="fxEndDatePicker" maxWidth="1.7976931348623157E308" />
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Rate" />
+                        <TextField fx:id="fxRate" />
+                     </children>
+                  </VBox>
+                  <VBox layoutX="26.0" layoutY="232.0" spacing="10.0">
+                     <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Description" />
+                        <TextArea fx:id="fxDescription" prefHeight="200.0" prefWidth="200.0" />
                      </children>
                   </VBox>
                </children>
@@ -50,7 +51,7 @@
       </ScrollPane>
       <HBox alignment="BOTTOM_RIGHT" spacing="10.0">
          <children>
-            <Button mnemonicParsing="false" onMouseClicked="#fxOnClickGeneratePaySlip" style="-fx-background-color: #cfe2ff;" text="Generate" textFill="#084298">
+            <Button mnemonicParsing="false" onMouseClicked="#fxOnClickCreateRoute" style="-fx-background-color: #cfe2ff;" text="Create" textFill="#084298">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>

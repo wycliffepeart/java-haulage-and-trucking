@@ -25,6 +25,12 @@
                         <ComboBox fx:id="fxRole" maxWidth="1.7976931348623157E308" VBox.vgrow="ALWAYS" />
                      </children>
                   </VBox>
+                  <VBox layoutX="26.0" layoutY="26.0" maxWidth="1.7976931348623157E308" spacing="10.0">
+                     <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Status" />
+                        <ComboBox fx:id="fxStatus" maxWidth="1.7976931348623157E308" VBox.vgrow="ALWAYS" />
+                     </children>
+                  </VBox>
                   <VBox spacing="10.0">
                      <children>
                         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="First Name" />
@@ -115,7 +121,7 @@
                   </VBox>
                   <VBox layoutX="26.0" layoutY="539.0" spacing="5.0">
                      <children>
-                        <Text fill="#434343" strokeType="OUTSIDE" strokeWidth="0.0" text="Additional Information">
+                        <Text fill="#434343" strokeType="OUTSIDE" strokeWidth="0.0" text="Next of Kin">
                            <font>
                               <Font name="System Bold" size="14.0" />
                            </font>

@@ -1,5 +1,6 @@
 package org.jht.service;
 
+import org.jht.dto.GeneratePaySlipBody;
 import org.jht.dto.PaySlip;
 import org.jht.support.HttpClient;
 import org.repository.PaySlipRepository;
@@ -28,7 +29,7 @@ public class PaySlipService {
      * @param paySlip  The pay slip to be posted.
      * @param callback The callback to be invoked when the operation completes.
      */
-    public void post(PaySlip paySlip, Callback<PaySlip> callback) {
+    public void post(GeneratePaySlipBody paySlip, Callback<PaySlip> callback) {
         HttpClient.use(PaySlipRepository.class).post(paySlip).enqueue(callback);
     }
 }

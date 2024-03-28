@@ -8,6 +8,7 @@ import org.jht.server.support.Role;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 @Getter
@@ -18,7 +19,7 @@ public class Staff {
 
     @Id
     @GeneratedValue
-    private int id;
+    private long id;
 
     private String status;
 
@@ -29,7 +30,7 @@ public class Staff {
 
     private String lastName;
 
-    private Date dob;
+    private LocalDate dob;
 
     private String trn;
 
@@ -39,11 +40,7 @@ public class Staff {
 
     private String nextOfKinContactNumber;
 
-    @CreatedDate
-    private Date createdAt;
-
-    @LastModifiedDate
-    private Date updatedAt;
+    private LocalDate createdAt;
 
     @OneToOne(cascade = CascadeType.ALL)
     private Contact contact;

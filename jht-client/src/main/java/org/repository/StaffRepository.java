@@ -2,9 +2,7 @@ package org.repository;
 
 import org.jht.dto.Staff;
 import retrofit2.Call;
-import retrofit2.http.Body;
-import retrofit2.http.GET;
-import retrofit2.http.POST;
+import retrofit2.http.*;
 
 import java.util.List;
 
@@ -31,4 +29,13 @@ public interface StaffRepository {
      */
     @POST("staffs")
     Call<Staff> post(@Body Staff staff);
+
+    /**
+     * Deletes a staff object from the API database with the specified ID.
+     *
+     * @param id The ID of the staff object to delete.
+     * @return A Call object which can contain the deleted Staff object.
+     */
+    @DELETE("staffs/{id}")
+    Call<Boolean> delete(@Path("id") int id);
 }

@@ -4,10 +4,12 @@ import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TableView;
+import javafx.scene.input.MouseEvent;
 import org.jetbrains.annotations.NotNull;
 import org.jht.component.RouteTable;
 import org.jht.dto.Route;
 import org.jht.service.RouteService;
+import org.jht.support.Navigate;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -39,5 +41,10 @@ public class RouteTableController implements Initializable {
 
             }
         });
+    }
+
+    @FXML
+    void fxOnClickCreateRoute(MouseEvent event){
+        Navigate.toWindow("Create Route", "route_form.fxml");
     }
 }
