@@ -36,13 +36,10 @@ public class RouteTable {
         TableColumn<Route, String> distance = new TableColumn<>("Distance");
         distance.setCellValueFactory(cellData -> new SimpleObjectProperty<>(cellData.getValue().getDistance()).asString());
 
-        TableColumn<Route, String> updatedAt = new TableColumn<>("Updated At");
-        updatedAt.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getUpdatedAt()));
-
         TableColumn<Route, String> createdAt = new TableColumn<>("Created At");
         createdAt.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getCreatedAt()));
 
-        TableColumn<Route, Button> deleteActions = new TableColumn<>("Delete Actions");
+        TableColumn<Route, Button> deleteActions = new TableColumn<>("Actions");
         deleteActions.setCellValueFactory(cellData -> new SimpleObjectProperty<>(new Button("Delete")));
 
         tableView.getColumns().addAll(
@@ -51,7 +48,6 @@ public class RouteTable {
                 distance,
                 rate,
                 description,
-                updatedAt,
                 createdAt,
                 deleteActions
         );

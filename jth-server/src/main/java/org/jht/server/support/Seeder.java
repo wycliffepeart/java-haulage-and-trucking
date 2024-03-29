@@ -8,9 +8,7 @@ import org.springframework.context.event.EventListener;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDate;
-import java.util.Date;
 import java.util.List;
-import java.util.function.Consumer;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -37,7 +35,7 @@ public class Seeder {
     public void doSomethingAfterStartup() {
         System.out.println("hello world, I have just started up");
 
-        if(this.staffRepository.findByTrn("234565434").isEmpty()) {
+        if (this.staffRepository.findByTrn("234565434").isEmpty()) {
             this.staffRepository.save(getDefaultAdminStaff(Role.ADMIN, "234565434"));
             this.staffRepository.save(getDefaultAdminStaff(Role.STAFF, "234565439"));
             this.routeRepository.save(getRoute());
@@ -102,7 +100,8 @@ public class Seeder {
                 .setRate(faker.number().randomDouble(2, 100, 1000))
                 .setDescription(faker.address().fullAddress())
                 .setDistance(faker.number().numberBetween(1, 10))
-                .setRoute(faker.country().capital());
+                .setRoute(faker.country().capital())
+                .setCreatedAt(LocalDate.now());
     }
 
     public Salary getSalary() {

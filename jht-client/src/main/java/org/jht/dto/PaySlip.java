@@ -6,6 +6,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 import lombok.experimental.Accessors;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 @Getter()
@@ -17,15 +18,13 @@ public class PaySlip {
 
     private final int id;
 
-    private final Date startDate;
+    private final LocalDate startDate;
 
-    private final Date endDate;
+    private final LocalDate endDate;
 
     private final double salary;
 
-    private Date createdAt;
-
-    private Date updatedAt;
+    private LocalDate createdAt;
 
     private final Staff staff;
 

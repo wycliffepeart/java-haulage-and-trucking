@@ -17,12 +17,16 @@ module org.jht {
     requires retrofit2.converter.gson;
     requires org.apache.logging.log4j;
     requires org.jetbrains.annotations;
+    requires stomp.websocket;
+    requires spring.messaging;
+    requires spring.websocket;
+    requires com.fasterxml.jackson.databind;
 
     opens org.jht to javafx.fxml, lombok;
     opens org.jht.dto to com.google.gson;
     opens org.jht.support to com.google.gson;
     opens org.jht.controller to javafx.fxml;
     opens org.jht.component to javafx.fxml;
-
+    opens org.jht.websocket to com.fasterxml.jackson.databind;
     exports org.jht;
 }
