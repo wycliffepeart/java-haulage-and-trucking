@@ -30,6 +30,11 @@ public class Data {
             "St. Thomas"
     );
 
+    /**
+     * Retrieves all possible two-level combinations of parishes in Jamaica.
+     *
+     * @return a list of strings representing the two-level combinations of parishes
+     */
     public static List<String> getAllCombination(){
         // Print all parishes
         System.out.println("Parishes in Jamaica:");
@@ -51,6 +56,12 @@ public class Data {
       return combinations;
     }
 
+    /**
+     * Generates two-level combinations of parishes in Jamaica.
+     * Each combination consists of two distinct parishes.
+     *
+     * @return a list of lists representing the two-level combinations of parishes
+     */
     private static List<List<String>> generateTwoLevelCombinations() {
         List<List<String>> combinations = new ArrayList<>();
         for (int i = 0; i < Data.parishes.size(); i++) {

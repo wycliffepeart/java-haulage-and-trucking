@@ -59,6 +59,11 @@ public class Navigate {
         }
     }
 
+    /**
+     * Open a new window with the specified layout.
+     *
+     * @param layout The name of the layout file to load
+     */
     public static void to(String layout){
         Stage stage = getParentStage();
 
@@ -80,6 +85,12 @@ public class Navigate {
         stage.show();
     }
 
+    /**
+     * Open a new window with the specified name and layout.
+     *
+     * @param name   The name of the window
+     * @param layout The name of the layout file to load
+     */
     public static void toWindow(String name, String layout) {
         Parent parent = FXMLInflater.inflateParent(layout);
         Stage stage = new Stage();

@@ -14,6 +14,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.jht.support.Data;
 import org.jht.support.Navigate;
+import org.jht.websocket.JTHWebSocketClient;
 import org.jht.websocket.Message;
 import org.jht.websocket.MyStompSessionHandler;
 import org.springframework.messaging.simp.stomp.StompFrameHandler;
@@ -39,9 +40,7 @@ public class MasterLayoutController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
-        ObservableList<String> items = FXCollections.observableArrayList(
-//                Collections.nCopies(100, "@you: This is a chat message")
-        );
+        ObservableList<String> items = FXCollections.observableArrayList();
 
         fxChatList.setOrientation(Orientation.VERTICAL);
 
