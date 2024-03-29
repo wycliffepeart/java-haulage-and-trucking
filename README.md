@@ -68,6 +68,11 @@ Java Haulage and Trucking is a leading transportation company dedicated to provi
 | Generate pay slips for all employees’ salaries.                                | 5%     | ✴️     |
 | Generate reports based on specific requirements.                               | 5%     | ✴️     |
 
+#### Bonus
+
+> Applications capable of supporting real-time/live chat between users at both locations will 
+> be given an extra credit of **5 marks**.
+
 # UML Class Diagram
 
 ![alt text](./jht-docs/jht-uml.png "Title")
