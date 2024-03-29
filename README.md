@@ -70,8 +70,8 @@ Java Haulage and Trucking is a leading transportation company dedicated to provi
 
 # UML Class Diagram
 
-![alt text](./jht-docs/jht-erd.png "Title")
+![alt text](./jht-docs/jht-uml.png "Title")
 
 # Database ERD Diagram
 
-![alt text](./jht-docs/jht-uml.png "Title")
+![alt text](./jht-docs/jht-erd.png "Title")
