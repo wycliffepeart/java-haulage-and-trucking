@@ -8,10 +8,15 @@ Java Haulage and Trucking is a leading transportation company dedicated to provi
 - Client
 - Documentations
 
-## Dependencies
+## Get Started
 
 - Java 21
-- Setup Plugin for Eclipse [Link](https://projectlombok.org/setup/eclipse)
+- IntelliJ IDEA Ultimate (Community Edition) Recommended or Eclipse
+- MySQL
+
+> NOTE: If you are using Eclipse
+> 
+> Setup plugin for Eclipse [Link](https://projectlombok.org/setup/eclipse) to add support for lombok
 
 ## Assessment
 
@@ -62,3 +67,11 @@ Java Haulage and Trucking is a leading transportation company dedicated to provi
 | Automatically flag a customer’s account for outstanding balances over 30 days. | 4%     | ✴️     |
 | Generate pay slips for all employees’ salaries.                                | 5%     | ✴️     |
 | Generate reports based on specific requirements.                               | 5%     | ✴️     |
+
+# UML Class Diagram
+
+![alt text](./jht-docs/jht-erd.png "Title")
+
+# Database ERD Diagram
+
+![alt text](./jht-docs/jht-uml.png "Title")
