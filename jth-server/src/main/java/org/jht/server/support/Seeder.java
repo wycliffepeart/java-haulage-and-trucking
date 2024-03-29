@@ -22,13 +22,15 @@ public class Seeder {
     private final OrderRepository orderRepository;
     private final SalaryRepository salaryRepository;
     private final RouteRepository routeRepository;
+    private final UserRepository userRepository;
 
-    public Seeder(CustomerRepository customerRepository, StaffRepository staffRepository, OrderRepository orderRepository, SalaryRepository salaryRepository, RouteRepository routeRepository) {
+    public Seeder(CustomerRepository customerRepository, StaffRepository staffRepository, OrderRepository orderRepository, SalaryRepository salaryRepository, RouteRepository routeRepository, UserRepository userRepository) {
         this.customerRepository = customerRepository;
         this.staffRepository = staffRepository;
         this.orderRepository = orderRepository;
         this.salaryRepository = salaryRepository;
         this.routeRepository = routeRepository;
+        this.userRepository = userRepository;
     }
 
     @EventListener(ApplicationReadyEvent.class)
@@ -36,10 +38,20 @@ public class Seeder {
         System.out.println("hello world, I have just started up");
 
         if (this.staffRepository.findByTrn("234565434").isEmpty()) {
-            this.staffRepository.save(getDefaultAdminStaff(Role.ADMIN, "234565434"));
+            var adminStaff1 = this.staffRepository.save(getDefaultAdminStaff(Role.ADMIN, "234565434"));
+            var adminStaff2 = this.staffRepository.save(getDefaultAdminStaff(Role.ADMIN, "234565421"));
             this.staffRepository.save(getDefaultAdminStaff(Role.STAFF, "234565439"));
             this.routeRepository.save(getRoute());
             this.customerRepository.save(getCustomer());
+
+            var admin1 = this.userRepository.save(new User().setEmail("admin1@gmail.com").setPassword("123456"));
+            admin1.setStaff(adminStaff1);
+            this.userRepository.save(admin1);
+
+
+            var admin2 = this.userRepository.save(new User().setEmail("admin2@gmail.com").setPassword("123456"));
+            admin2.setStaff(adminStaff2);
+            this.userRepository.save(admin2);
         }
 
 //        this.customerRepository.saveAll(seedCustomer());

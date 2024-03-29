@@ -115,8 +115,8 @@
                   </VBox>
                   <HBox spacing="5.0" VBox.vgrow="NEVER">
                      <children>
-                        <TextField HBox.hgrow="ALWAYS" />
-                        <Button mnemonicParsing="false" text="Send" textFill="#000000ec">
+                        <TextField fx:id="fxChatTextField" onKeyPressed="#fxOnChatBoxKeyPress" HBox.hgrow="ALWAYS" />
+                        <Button mnemonicParsing="false" onMouseClicked="#fxOnClickSend" text="Send" textFill="#000000ec">
                            <font>
                               <Font name="System Bold" size="13.0" />
                            </font>

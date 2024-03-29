@@ -11,6 +11,9 @@ import java.util.Scanner;
 public class JTHWebSocketClient {
 
     public static void connect() {
+
+//        https://stackoverflow.com/questions/36456458/simpmessagingtemplate-not-sending-messages-in-spring-boot
+
         String serverUrl = "ws://localhost:8080/websocket"; // Replace with your server's WebSocket URL
         WebSocketClient client = new StandardWebSocketClient();
         WebSocketStompClient stompClient = new WebSocketStompClient(client);
@@ -19,6 +22,6 @@ public class JTHWebSocketClient {
 
         StompSessionHandler sessionHandler = new MyStompSessionHandler();
         stompClient.connectAsync(serverUrl, sessionHandler);
-        new Scanner(System.in).nextLine(); // Don't close immediately.
+//        new Scanner(System.in).nextLine(); // Don't close immediately.
     }
 }

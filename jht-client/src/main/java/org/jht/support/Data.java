@@ -1,12 +1,15 @@
 package org.jht.support;
 
 import lombok.Getter;
+import org.jht.dto.User;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 public class Data {
+
+    public static User user;
 
     // List of parishes in Jamaica
     @Getter

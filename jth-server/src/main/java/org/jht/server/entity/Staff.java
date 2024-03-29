@@ -47,4 +47,5 @@ public class Staff {
 
     @OneToOne(cascade = CascadeType.ALL)
     private Address address;
+
 }

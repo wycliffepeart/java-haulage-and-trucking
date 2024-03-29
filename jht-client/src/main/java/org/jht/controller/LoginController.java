@@ -1,5 +1,7 @@
 package org.jht.controller;
 
+import com.google.gson.GsonBuilder;
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -11,8 +13,15 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.jetbrains.annotations.NotNull;
+import org.jht.dto.User;
 import org.jht.model.UserEntity;
+import org.jht.service.UserService;
+import org.jht.support.Data;
 import org.jht.support.Navigate;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -35,7 +44,7 @@ public class LoginController implements Initializable {
      * @field fxIdNumber {@link TextField}
      */
     @FXML
-    protected TextField fxIdNumber;
+    protected TextField fxUsername;
 
     /**
      * The password container
@@ -87,6 +96,9 @@ public class LoginController implements Initializable {
      */
     protected UserEntity userEntity;
 
+
+    UserService userService = new UserService();
+
     public LoginController() {
         userEntity = new UserEntity();
     }
@@ -114,17 +126,20 @@ public class LoginController implements Initializable {
     private void onClickSignIn(MouseEvent event) {
         logger.info("onClickSignIn()");
 
-        Navigate.to("staff_table.fxml");
-//        final boolean idNumberIsValid = validateIdNumber();
-//        final boolean passwordIsValid = validatePassword();
-//
-//        if (idNumberIsValid && passwordIsValid) {
-//
-//            UserEntity userEntities = userTable.whereIdAndPassword(fxIdNumber.getText(), fxPassword.getText());
+        var user = new User().setEmail(fxUsername.getText()).setPassword(fxPassword.getText());
+        this.userService.auth(user, new Callback<>() {
+            @Override
+            public void onResponse(@NotNull Call<User> call, @NotNull Response<User> response) {
+                Data.user = response.body();
+                logger.info("Success: {}", new GsonBuilder().setPrettyPrinting().create().toJson(Data.user));
+                Platform.runLater(() -> Navigate.to("staff_table.fxml"));
+            }
 
-//            System.out.println(userEntities.getIdNumber());
-//        }
-//        System.out.println("Click");
+            @Override
+            public void onFailure(@NotNull Call<User> call, @NotNull Throwable throwable) {
+
+            }
+        });
     }
 
     /**
@@ -135,7 +150,7 @@ public class LoginController implements Initializable {
     @FXML
     private void onEnterIdNumber(KeyEvent keyEvent) {
 
-        if (validateIdNumber()) userEntity.setIdNumber(fxIdNumber.getText());
+        if (validateIdNumber()) userEntity.setIdNumber(fxUsername.getText());
     }
 
     /**
@@ -145,11 +160,11 @@ public class LoginController implements Initializable {
      */
     protected boolean validateIdNumber() {
 
-        final boolean isEmpty = fxIdNumber.getText().length() == 0;
+        final boolean isEmpty = fxUsername.getText().length() == 0;
 
         final String errorMessage = isEmpty ? "Id number is required" : "Id number should be 6 or more characters";
 
-        return textFieldValidator(fxIdFieldContainer, fxIdNumber, 7, errorMessage);
+        return textFieldValidator(fxIdFieldContainer, fxUsername, 7, errorMessage);
     }
 
     /**
@@ -216,16 +231,5 @@ public class LoginController implements Initializable {
     @FXML
     private void onClickForgetPassword(MouseEvent event) {
 
-    }
-
-    /**
-     * The sidebar button on click listener
-     *
-     * @param mouseEvent {@link MouseEvent}
-     */
-    @FXML
-    protected void onClickSidebarButton(MouseEvent mouseEvent) {
-
-//        Route.toRegistration();
     }
 }
