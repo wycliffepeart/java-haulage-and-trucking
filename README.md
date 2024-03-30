@@ -63,10 +63,12 @@ Java Haulage and Trucking is a leading transportation company dedicated to provi
 
 | Deliverables                                                                   | Weight | Status |
 |--------------------------------------------------------------------------------|--------|--------|
+| Authentication                                                                 | %      | ✴️     |
 | Automatically assign the rates to the invoice for the trip.                    | 5%     | ✅️️    |
 | Automatically flag a customer’s account for outstanding balances over 30 days. | 4%     | ✴️     |
 | Generate pay slips for all employees’ salaries.                                | 5%     | ✅️️    |
 | Generate reports based on specific requirements.                               | 5%     | ✴️     |
+| Chat feature                                                                   | 5%     | ✅️️    |
 
 #### Bonus
 
