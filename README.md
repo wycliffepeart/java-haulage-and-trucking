@@ -68,6 +68,7 @@ Java Haulage and Trucking is a leading transportation company dedicated to provi
 | Automatically flag a customer’s account for outstanding balances over 30 days. | 4%     | ✴️     |
 | Generate pay slips for all employees’ salaries.                                | 5%     | ✅️️    |
 | Generate reports based on specific requirements.                               | 5%     | ✴️     |
+| Report Generator                                                               | %      | ✴️     |
 | Chat feature                                                                   | 5%     | ✅️️    |
 
 #### Bonus
