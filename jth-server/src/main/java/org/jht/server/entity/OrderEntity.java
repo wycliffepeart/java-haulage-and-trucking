@@ -26,6 +26,9 @@ public class OrderEntity {
     private LocalDate createdAt;
 
     @ManyToOne(cascade = CascadeType.ALL, optional = false)
+    private Invoice invoice;
+
+    @ManyToOne(cascade = CascadeType.ALL, optional = false)
     private Route route;
 
     @ManyToOne(cascade = CascadeType.ALL, optional = false)

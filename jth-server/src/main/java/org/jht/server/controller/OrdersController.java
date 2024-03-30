@@ -1,6 +1,7 @@
 package org.jht.server.controller;
 
 import org.jht.server.dto.OrderRequestBody;
+import org.jht.server.entity.Invoice;
 import org.jht.server.entity.OrderEntity;
 import org.jht.server.repository.CustomerRepository;
 import org.jht.server.repository.OrderRepository;
@@ -10,9 +11,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.time.LocalDate;
-import java.util.Date;
 import java.util.List;
 
 @RestController
@@ -38,12 +37,14 @@ public class OrdersController {
         var admin = this.staffRepository.findById(body.getAdminId()).get();
         var driver = this.staffRepository.findById(body.getDriverId()).get();
         var customer = this.customerRepository.findById(body.getCustomerId()).get();
+        var invoice = new Invoice().setTotal(route.getDistance() * route.getRate()).setCreatedAt(LocalDate.now());
 
         var order = new OrderEntity()
                 .setAdmin(admin)
                 .setDriver(driver)
                 .setCustomer(customer)
                 .setRoute(route)
+                .setInvoice(invoice)
                 .setCreatedAt(LocalDate.now())
                 .setSourceAddress(body.getSourceAddress())
                 .setDestinationAddress(body.getDestinationAddress());

@@ -25,77 +25,32 @@ import retrofit2.Response;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class LoginController implements Initializable {
 
     protected static final Logger logger = LogManager.getLogger(LoginController.class);
 
-    /**
-     * The id field container
-     *
-     * @field fxIdFieldContainer {@link VBox}
-     */
     @FXML
     private VBox fxIdFieldContainer;
 
-    /**
-     * The user id number text field
-     *
-     * @field fxIdNumber {@link TextField}
-     */
     @FXML
     protected TextField fxUsername;
 
-    /**
-     * The password container
-     *
-     * @field fxPasswordContainer {@link VBox}
-     */
     @FXML
     protected VBox fxPasswordContainer;
 
-    /**
-     * The user password field
-     *
-     * @field fxPassword {@link PasswordField}
-     */
     @FXML
     protected PasswordField fxPassword;
 
-    /**
-     * The button use to submit user credentials
-     *
-     * @field fxSubmitButton {@link Button}
-     */
     @FXML
     protected Button fxSubmitButton;
-
-    /**
-     * The button use to toggle between login and registration
-     *
-     * @field fxSidebarButton {@link Button}
-     */
-
-    @FXML
-    VBox fxSubmitButtonContainer1;
 
     @FXML
     VBox fxSubmitButtonContainer;
 
-    /**
-     * The user table
-     *
-     * @field userTable {@link UserTable}
-     */
-//    protected UserTable userTable;
-
-    /**
-     * The user entity
-     *
-     * @field userEntity {@link UserEntity}
-     */
     protected UserEntity userEntity;
-
 
     UserService userService = new UserService();
 
@@ -103,28 +58,20 @@ public class LoginController implements Initializable {
         userEntity = new UserEntity();
     }
 
-    /**
-     * Called to initialize a controller after its root element has been
-     * completely processed.
-     *
-     * @param location  The location used to resolve relative paths for the root object, or
-     *                  {@code null} if the location is not known.
-     * @param resources The resources used to localize the root object, or {@code null} if
-     */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
         logger.info("Initialize");
     }
 
-    /**
-     * Invoke when the user click sign in
-     *
-     * @param event {@link MouseEvent}
-     */
     @FXML
     private void onClickSignIn(MouseEvent event) {
         logger.info("onClickSignIn()");
+
+        var isValidEmail = this.email(fxIdFieldContainer, fxUsername, "Not a valid email address");
+        var isValidPassword = this.validatePassword();
+
+        if (!isValidEmail || !isValidPassword) return;
 
         var user = new User().setEmail(fxUsername.getText()).setPassword(fxPassword.getText());
         this.userService.auth(user, new Callback<>() {
@@ -160,7 +107,7 @@ public class LoginController implements Initializable {
      */
     protected boolean validateIdNumber() {
 
-        final boolean isEmpty = fxUsername.getText().length() == 0;
+        final boolean isEmpty = fxUsername.getText().isEmpty();
 
         final String errorMessage = isEmpty ? "Id number is required" : "Id number should be 6 or more characters";
 
@@ -193,6 +140,24 @@ public class LoginController implements Initializable {
         return textFieldValidator(fxPasswordContainer, fxPassword, 4, errorMessage);
     }
 
+    protected boolean email(VBox container, TextField textField, String errorMessage) {
+        // Regular expression for email validation
+        String regex = "^[a-zA-Z0-9_+&*-]+(?:\\.[a-zA-Z0-9_+&*-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,7}$";
+
+        // Compile the regex pattern
+        Pattern pattern = Pattern.compile(regex);
+
+        // Create a matcher object
+        Matcher matcher = pattern.matcher(textField.getText());
+
+        var match = matcher.matches();
+
+        if (match) container.getChildren().add(1, getErrorMessage(errorMessage));
+
+        // Perform the matching and return the result
+        return match;
+    }
+
     /**
      * Validate text field
      *
@@ -207,11 +172,8 @@ public class LoginController implements Initializable {
 
         if (textField.getText().length() < charLength) {
 
-            final Label label = new Label(errorMessage);
-            label.setStyle("-fx-text-fill: red");
-
             if (container.getChildren().size() > 1) container.getChildren().remove(1);
-            container.getChildren().add(1, label);
+            container.getChildren().add(1, getErrorMessage(errorMessage));
 
         } else {
 
@@ -223,13 +185,11 @@ public class LoginController implements Initializable {
         return success;
     }
 
-    /**
-     * Invoke when the user click forget password
-     *
-     * @param event {@link MouseEvent}
-     */
-    @FXML
-    private void onClickForgetPassword(MouseEvent event) {
+    public Label getErrorMessage(String message) {
+        final Label label = new Label(message);
+        label.setStyle("-fx-text-fill: red");
 
+        return label;
     }
+
 }

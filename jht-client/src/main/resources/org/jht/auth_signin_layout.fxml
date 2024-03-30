@@ -50,11 +50,6 @@
                                     </PasswordField>
                                 </children>
                             </VBox>
-                            <Label alignment="CENTER" onMouseClicked="#onClickForgetPassword" prefHeight="23.0" prefWidth="145.0" text="Forget Your Password?" textFill="#5b5a5a" underline="true">
-                                <font>
-                                    <Font name="Segoe UI" size="12.0" />
-                                </font>
-                            </Label>
                             <VBox fx:id="fxSubmitButtonContainer" alignment="CENTER">
                                 <children>
                                     <Button fx:id="fxSubmitButton" mnemonicParsing="false" onMouseClicked="#onClickSignIn" prefHeight="41.0" prefWidth="564.0" style="-fx-background-color: white; -fx-border-radius: 50%; -fx-background-radius: 50%; -fx-border-color: blue;" text="SIGN IN" textFill="BLUE">

@@ -12,6 +12,7 @@ public class Order {
     private String invoiceNumber;
     private String createdAt;
     private String updatedAt;
+    private Invoice invoice;
     private Route route;
     private Staff driver;
     private Staff admin;

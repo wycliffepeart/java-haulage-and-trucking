@@ -28,7 +28,13 @@ public class OrderTable {
         companyName.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getCustomer().getCompanyName()));
 
         TableColumn<Order, String> rate = new TableColumn<>("Rate");
-        rate.setCellValueFactory(cellData -> new SimpleObjectProperty<Double>(cellData.getValue().getRoute().getRate()).asString());
+        rate.setCellValueFactory(cellData -> new SimpleObjectProperty<>(cellData.getValue().getRoute().getRate()).asString());
+
+        TableColumn<Order, String> distance = new TableColumn<>("Distance");
+        distance.setCellValueFactory(cellData -> new SimpleObjectProperty<>(cellData.getValue().getRoute().getDistance()).asString());
+
+        TableColumn<Order, String> invoiceTotal = new TableColumn<>("Invoice Total");
+        invoiceTotal.setCellValueFactory(cellData -> new SimpleObjectProperty<>(cellData.getValue().getInvoice().getTotal()).asString());
 
         // Source Address
         TableColumn<Order, String> sourceAddressLineOne = new TableColumn<>("Source Address Line One");
@@ -66,6 +72,8 @@ public class OrderTable {
                 idColumn,
                 companyName,
                 rate,
+                distance,
+                invoiceTotal,
                 sourceAddressLineOne,
                 sourceAddressLineTwo,
                 sourceAddressParish,
