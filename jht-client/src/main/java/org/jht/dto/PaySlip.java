@@ -18,13 +18,13 @@ public class PaySlip {
 
     private final int id;
 
-    private final LocalDate startDate;
+    private final String startDate;
 
-    private final LocalDate endDate;
+    private final String endDate;
 
     private final double salary;
 
-    private LocalDate createdAt;
+    private String createdAt;
 
     private final Staff staff;
 

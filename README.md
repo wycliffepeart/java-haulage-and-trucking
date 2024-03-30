@@ -23,7 +23,7 @@ Java Haulage and Trucking is a leading transportation company dedicated to provi
 | Deliverables                                        | Weight | Status |
 |-----------------------------------------------------|--------|--------|
 | UML Class and Database ER Diagrams                  | 5%     | ✅      |
-| Comments, Programming Conventions and Documentation | 5%     | ✴️     |
+| Comments, Programming Conventions and Documentation | 5%     | ✅      |
 | Classes, Interfaces, Inheritance and Polymorphism   | 10%    | ✅      |
 | Database Connectivity (mandatory)                   | 10%    | ✅      |
 | Exception Handling, User & Data Input Validation    | 5%     | ✴️     |
@@ -37,14 +37,14 @@ Java Haulage and Trucking is a leading transportation company dedicated to provi
 
 | Deliverables                                         | Weight | Status |
 |------------------------------------------------------|--------|--------|
-| Database design - UML Class and Database ER Diagrams | 5%     | ✴️     |
-| Comments, Programming Conventions and Documentation  | 5%     | ✴️     |
-| Classes, Interfaces, Inheritance and Polymorphism    | 5%     | ✴️     |
-| Database Connectivity                                | 10%    | ✴️     |
+| Database design - UML Class and Database ER Diagrams | 5%     | ✅️     |
+| Comments, Programming Conventions and Documentation  | 5%     | ✅️     |
+| Classes, Interfaces, Inheritance and Polymorphism    | 5%     | ✅️     |
+| Database Connectivity                                | 10%    | ✅️     |
 | Exception Handling, User & Data Input Validation     | 5%     | ✴️     |
-| Events Logging using Log4j2                          | 5%     | ✴️     |
-| Networking – Threading, etc.                         | 10%    | ✴️     |
-| Graphical User Interface                             | 10%    | ✴️     |
+| Events Logging using Log4j2                          | 5%     | ✅️     |
+| Networking – Threading, etc.                         | 10%    | ✅️     |
+| Graphical User Interface                             | 10%    | ✅️     |
 | User Manual                                          | 5%     | ✴️     |
 
 ## System Functionalities (Admin)
@@ -52,20 +52,20 @@ Java Haulage and Trucking is a leading transportation company dedicated to provi
 | Deliverables                                                           | Weight | Status |
 |------------------------------------------------------------------------|--------|--------|
 | Log into the dashboard with their Staff ID and password                | 3%     | ✴️     |
-| Add a haulage or delivery request record to the system.                | 3%     | ✴️     |
-| Add a staff record to the system.                                      | 3%     | ✴️     |
-| Add a customer record to the system.                                   | 3%     | ✴️     |
-| Add the routes and rates into the system.                              | 3%     | ✴️     |
-| Select the routes from a dropdown list when booking a haulage request. | 3%     | ✴️     |
+| Add a haulage or delivery request record to the system.                | 3%     | ✅️     |
+| Add a staff record to the system.                                      | 3%     | ✅️     |
+| Add a customer record to the system.                                   | 3%     | ✅️     |
+| Add the routes and rates into the system.                              | 3%     | ✅️     |
+| Select the routes from a dropdown list when booking a haulage request. | 3%     | ✅️     |
 | See whether a customer has an outstanding balance.                     | 3%     | ✴️     |
 
 ## System Functionalities (Other)
 
 | Deliverables                                                                   | Weight | Status |
 |--------------------------------------------------------------------------------|--------|--------|
-| Automatically assign the rates to the invoice for the trip.                    | 5%     | ✴️     |
+| Automatically assign the rates to the invoice for the trip.                    | 5%     | ✅️️    |
 | Automatically flag a customer’s account for outstanding balances over 30 days. | 4%     | ✴️     |
-| Generate pay slips for all employees’ salaries.                                | 5%     | ✴️     |
+| Generate pay slips for all employees’ salaries.                                | 5%     | ✅️️    |
 | Generate reports based on specific requirements.                               | 5%     | ✴️     |
 
 #### Bonus

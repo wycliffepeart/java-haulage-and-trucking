@@ -18,6 +18,13 @@ import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
 
+
+/**
+ * The RouteTableController class is responsible for controlling the route table view in the user interface.
+ * It initializes the table view with data retrieved from the RouteService class.
+ *
+ * @implements Initialize
+ */
 public class RouteTableController implements Initializable {
 
     @FXML
@@ -25,6 +32,12 @@ public class RouteTableController implements Initializable {
 
     private final RouteService routeService = new RouteService();
 
+    /**
+     * Initializes the table view with data retrieved from a service.
+     *
+     * @param location  The location used to resolve relative paths for the root object, or {@code null} if the location is not known.
+     * @param resources The resources used to localize the root object, or {@code null} if the root object was not localized.
+     */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
@@ -43,6 +56,11 @@ public class RouteTableController implements Initializable {
         });
     }
 
+    /**
+     * Handles the onClick event for creating a new route.
+     *
+     * @param event The MouseEvent that triggered the event.
+     */
     @FXML
     void fxOnClickCreateRoute(MouseEvent event){
         Navigate.toWindow("Create Route", "route_form.fxml");

@@ -26,17 +26,28 @@ import java.util.Collections;
 import java.util.Objects;
 import java.util.ResourceBundle;
 
+/**
+ * The MasterLayoutController class is responsible for managing the layout of the master view.
+ * It handles user interactions and updates the UI accordingly.
+ */
 public class MasterLayoutController implements Initializable {
-
-    @FXML
-    public ListView<String> fxChatList;
 
     @FXML
     TextField fxChatTextField;
 
+    @FXML
+    public ListView<String> fxChatList;
+
     private final Logger logger = LogManager.getLogger(MasterLayoutController.class);
 
-
+    /**
+     * Initializes the controller after its root element has been completely processed.
+     *
+     * @param location
+     *             The location used to resolve relative paths for the root object, or {@code null} if the location is not known.
+     * @param resources
+     *             The resources used to localize the root object, or {@code null} if the root object was not localized.
+     */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
@@ -67,11 +78,21 @@ public class MasterLayoutController implements Initializable {
         });
     }
 
+    /**
+     * Handles the event when the user clicks the 'Send' button in the user interface.
+     *
+     * @param event The mouse event triggered by the user's click
+     */
     @FXML
     void fxOnClickSend(MouseEvent event){
 
     }
 
+    /**
+     * Handles the key press event on the chat box.
+     *
+     * @param event The key event triggered by the user's key press
+     */
     @FXML
     void fxOnChatBoxKeyPress(KeyEvent event){
         logger.info(event.getCode().getName());
@@ -85,30 +106,50 @@ public class MasterLayoutController implements Initializable {
     }
 
     /**
-     * Invoke when the user click sign in
+     * Handles the event when the user clicks the "Manage Staff" button in the user interface.
      *
-     * @param event {@link MouseEvent}
+     * @param event The mouse event triggered by the user's click
      */
     @FXML
     private void onClickManageStaff(MouseEvent event) {
         Navigate.to("staff_table.fxml");
     }
 
+    /**
+     * Handles the event when the user clicks the Manage Customer button.
+     *
+     * @param event The mouse event triggered by the user's click
+     */
     @FXML
     private void onClickManageCustomer(MouseEvent event) {
         Navigate.to("customer_table.fxml");
     }
 
+    /**
+     * Handles the event when the user clicks the "Manage Orders" button in the user interface.
+     *
+     * @param event The mouse event triggered by the user's click
+     */
     @FXML
     private void onClickManageOrders(MouseEvent event) {
         Navigate.to("orders_table.fxml");
     }
 
+    /**
+     * Handles the event when the user clicks the "Manage Salary" button in the user interface.
+     *
+     * @param event The mouse event triggered by the user's click
+     */
     @FXML
     private void onClickManageSalary(MouseEvent event) {
         Navigate.to("pay_slip_table.fxml");
     }
 
+    /**
+     * Handles the event when the user clicks the "Manage Route" button in the user interface.
+     *
+     * @param event The mouse event triggered by the user's click
+     */
     @FXML
     private void onClickManageRoute(MouseEvent event) {
         Navigate.to("route_table.fxml");

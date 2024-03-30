@@ -19,6 +19,10 @@ import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
 
+
+/**
+ * The StaffTableController class controls the staff table view and its interactions.
+ */
 public class StaffTableController implements Initializable {
 
     @FXML
@@ -29,6 +33,14 @@ public class StaffTableController implements Initializable {
 
     private final StaffService service = new StaffService();
 
+    /**
+     * Initializes the StaffTableController class.
+     *
+     * @param location
+     *              The location used to resolve relative paths for the root object, or {@code null} if the location is not known.
+     * @param resources
+     *              The resources used to localize the root object, or {@code null} if the root object was not localized.
+     */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
@@ -47,6 +59,11 @@ public class StaffTableController implements Initializable {
         });
     }
 
+    /**
+     * Event handler for the "Add Staff" button click.
+     *
+     * @param event The MouseEvent that triggered the event.
+     */
     @FXML
     void addStaffOnClickListener(MouseEvent event) {
         Navigate.toWindow("Add Staff", "staff_form.fxml");

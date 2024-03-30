@@ -21,16 +21,25 @@ import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
 
-public class OrderController implements Initializable {
+
+/**
+ * The OrderController class is responsible for managing the order view and user interactions.
+ */
+public class OrderTableController implements Initializable {
 
     @FXML
     public TableView<Order> tableView;
 
     private final OrderService orderService = new OrderService();
 
-    protected static final Logger logger = LogManager.getLogger(OrderController.class);
+    protected static final Logger logger = LogManager.getLogger(OrderTableController.class);
 
-
+    /**
+     * Initializes the OrderController by populating the tableView with data from the order service.
+     *
+     * @param location The location used to resolve relative paths for the root object, or null if the location is not known.
+     * @param resources The resources used to localize the root object, or null if the root object was not localized.
+     */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         var orderTable = new OrderTable(this.tableView);
@@ -49,6 +58,13 @@ public class OrderController implements Initializable {
         });
     }
 
+    /**
+     * Handles the click event for the "Add Order" button.
+     *
+     * This method is called when the user clicks the "Add Order" button. It navigates the user to the "Add Order" window by calling the Navigate.toWindow() method.
+     *
+     * @param mouseEvent The MouseEvent that triggered the event.
+     */
     @FXML
     void onClickAddOrder(MouseEvent mouseEvent){
         Navigate.toWindow("Add Order","order_form.fxml");

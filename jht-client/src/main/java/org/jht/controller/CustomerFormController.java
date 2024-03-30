@@ -100,9 +100,9 @@ public class CustomerFormController implements Initializable {
     }
 
     /**
-     * Handles the onClick event for the Create button.
+     * Handles the event when the create customer button is clicked.
      *
-     * @param event The MouseEvent that triggered the event
+     * @param event the MouseEvent that triggered the event
      */
     @FXML
     void onClickCreateCustomer(MouseEvent event) {

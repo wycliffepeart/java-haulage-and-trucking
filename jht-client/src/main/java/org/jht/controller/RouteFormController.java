@@ -23,6 +23,11 @@ import retrofit2.Response;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+
+/**
+ * RouteFormController is a controller class that manages the functionality of a route form.
+ * It is responsible for initializing the form, handling user input, and interacting with the RouteService.
+ */
 public class RouteFormController implements Initializable {
 
     @FXML
@@ -65,6 +70,11 @@ public class RouteFormController implements Initializable {
         fxRoute.getItems().addAll(Data.getAllCombination());
     }
 
+    /**
+     * Handles the event of creating a new route when the user clicks the Create Route button.
+     *
+     * @param event the MouseEvent that triggered the event
+     */
     @FXML
     void fxOnClickCreateRoute(MouseEvent event) {
 

@@ -10,6 +10,19 @@ import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 
+@Embeddable
+class CourseRatingKey implements Serializable {
+
+    @Column(name = "s_id")
+    Long studentId;
+
+    @Column(name = "course_id")
+    Long courseId;
+
+    // standard constructors, getters, and setters
+    // hashcode and equals implementation
+}
+
 @Getter
 @Setter
 @Entity
@@ -28,12 +41,12 @@ public class Salary {
 
     private LocalDate createdAt;
 
-    @OneToMany(cascade = CascadeType.ALL)
+    @ManyToMany(cascade = CascadeType.ALL)
     private List<OrderEntity> orderEntities;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.ALL)
     private Staff staff;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.ALL)
     private Staff admin;
 }

@@ -28,6 +28,10 @@ import java.util.ResourceBundle;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+
+/**
+ * The LoginController class is responsible for handling the login functionality of the application.
+ */
 public class LoginController implements Initializable {
 
     protected static final Logger logger = LogManager.getLogger(LoginController.class);
@@ -185,6 +189,12 @@ public class LoginController implements Initializable {
         return success;
     }
 
+    /**
+     * Retrieves an error message label with the specified message text.
+     *
+     * @param message The error message text.
+     * @return The error message label.
+     */
     public Label getErrorMessage(String message) {
         final Label label = new Label(message);
         label.setStyle("-fx-text-fill: red");

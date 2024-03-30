@@ -22,12 +22,12 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 import java.net.URL;
-import java.text.SimpleDateFormat;
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
-import java.util.Date;
 import java.util.ResourceBundle;
 
+
+/**
+ * The controller class for generating pay slips.
+ */
 public class PaySlipGeneratorController implements Initializable {
 
     @FXML
@@ -49,6 +49,14 @@ public class PaySlipGeneratorController implements Initializable {
 
     protected static final Logger logger = LogManager.getLogger(PaySlipGeneratorController.class);
 
+    /**
+     * Initializes the controller with the given URL location and ResourceBundle.
+     *
+     * @param location
+     *            The location used to resolve relative paths for the root object, or {@code null} if the location is not known.
+     * @param resources
+     *            The resources used to localize the root object, or {@code null} if the root object was not localized.
+     */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 

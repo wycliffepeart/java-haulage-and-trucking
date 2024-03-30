@@ -75,4 +75,9 @@ public class SalaryController {
     public ResponseEntity<List<Salary>> get() {
         return ResponseEntity.ok(this.salaryRepository.findAll());
     }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<Salary> find(@PathVariable long id) {
+        return ResponseEntity.ok(this.salaryRepository.findById(id).get());
+    }
 }

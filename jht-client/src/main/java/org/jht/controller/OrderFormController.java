@@ -25,6 +25,11 @@ import retrofit2.Response;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+
+/**
+ * The OrderFormController class controls the order form view.
+ * It allows users to create a new order by filling out the form fields and submitting the order.
+ */
 public class OrderFormController implements Initializable {
 
     @FXML
@@ -87,7 +92,12 @@ public class OrderFormController implements Initializable {
      */
     protected static final Logger logger = LogManager.getLogger(OrderFormController.class);
 
-
+    /**
+     * Initializes the OrderFormController with the specified URL location and ResourceBundle resources.
+     *
+     * @param location - The location used to resolve relative paths for the root object, or {@code null} if the location is not known.
+     * @param resources - The resources used to localize the root object, or {@code null} if the root object was not localized.
+     */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
@@ -100,6 +110,11 @@ public class OrderFormController implements Initializable {
         fxDestinationParish.getItems().addAll(Data.getParishes());
     }
 
+    /**
+     * Handles the onClick event for the "Create Order" button.
+     *
+     * @param event The MouseEvent that triggered the event.
+     */
     @FXML
     void onClickCreateOrderListener(MouseEvent event) {
         var role = fxRouteComboBox.getValue();

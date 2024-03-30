@@ -20,11 +20,17 @@ import java.util.ResourceBundle;
 
 public class CustomerController implements Initializable {
 
-    private final CustomerService customerService = new CustomerService();
-
     @FXML
     public TableView<Customer> tableView;
 
+    private final CustomerService customerService = new CustomerService();
+
+    /**
+     * This method is called when the controller is initialized and sets up the CustomerTable view.
+     *
+     * @param location The location used to resolve relative paths for the root object, or {@code null} if the location is not known.
+     * @param resources The resources used to localize the root object, or {@code null} if the root object was not localized.
+     */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
@@ -44,6 +50,11 @@ public class CustomerController implements Initializable {
 
     }
 
+    /**
+     * Handles the event when the create customer button is clicked.
+     *
+     * @param event The mouse event that triggered the event.
+     */
     @FXML
     void onClickCreateCustomer(MouseEvent event){
         Navigate.toWindow("Create Customer", "customer_form.fxml");

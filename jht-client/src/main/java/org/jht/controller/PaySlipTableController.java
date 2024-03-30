@@ -21,6 +21,12 @@ import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
 
+/**
+ * The controller class for the PaySlipTable view.
+ * It manages the display and interaction of the TableView and ComboBox.
+ *
+ * @implements Initializable
+ */
 public class PaySlipTableController implements Initializable {
 
     @FXML
@@ -31,6 +37,12 @@ public class PaySlipTableController implements Initializable {
 
     private final PaySlipService service = new PaySlipService();
 
+    /**
+     * Initializes the PaySlipTableController by setting up the necessary dependencies and retrieving data.
+     *
+     * @param location The location used to resolve relative paths for the root object, or {@code null} if the location is not known.
+     * @param resources The resources used to localize the root object, or {@code null} if the root object was not localized.
+     */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         var salaryTable = new PaySlipTableMappings(tableView);
@@ -52,6 +64,11 @@ public class PaySlipTableController implements Initializable {
         });
     }
 
+    /**
+     * Performs the action of generating a pay slip.
+     *
+     * @param event The mouse event that triggered the method.
+     */
     @FXML
     void onClickGeneratePaySlip(MouseEvent event) {
         Navigate.toWindow("Generate Pay Slip", "pay_slip_generator_form.fxml");

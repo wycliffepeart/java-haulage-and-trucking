@@ -46,10 +46,10 @@ public class PaySlipTableMappings {
         salary.setCellValueFactory(cellData -> new SimpleObjectProperty<>(cellData.getValue().getSalary()).asString());
 
         TableColumn<PaySlip, String> startDate = new TableColumn<>("Start Date");
-        startDate.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getStartDate().toString()));
+        startDate.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getStartDate()));
 
         TableColumn<PaySlip, String> endDate = new TableColumn<>("End Date");
-        endDate.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getEndDate().toString()));
+        endDate.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getEndDate()));
 
         TableColumn<PaySlip, String> adminFirstName = new TableColumn<>("Admin First Name");
         adminFirstName.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getAdmin().getFirstName()));
@@ -61,7 +61,7 @@ public class PaySlipTableMappings {
         adminTrn.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getAdmin().getTrn()));
 
         TableColumn<PaySlip, String> createdAt = new TableColumn<>("Created At");
-        createdAt.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getCreatedAt().toString()));
+        createdAt.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getCreatedAt()));
 
         TableColumn<PaySlip, Button> deleteStaff = new TableColumn<>("Actions");
         deleteStaff.setCellValueFactory(cellData -> new SimpleObjectProperty<>(new Button("Delete")));
