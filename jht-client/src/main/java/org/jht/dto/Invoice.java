@@ -14,4 +14,6 @@ public class Invoice {
     private double total;
 
     private String createdAt;
+
+    private Customer customer;
 }

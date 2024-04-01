@@ -14,7 +14,6 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.jht.support.Data;
 import org.jht.support.Navigate;
-import org.jht.websocket.JTHWebSocketClient;
 import org.jht.websocket.Message;
 import org.jht.websocket.MyStompSessionHandler;
 import org.springframework.messaging.simp.stomp.StompFrameHandler;
@@ -22,7 +21,6 @@ import org.springframework.messaging.simp.stomp.StompHeaders;
 
 import java.lang.reflect.Type;
 import java.net.URL;
-import java.util.Collections;
 import java.util.Objects;
 import java.util.ResourceBundle;
 
@@ -43,10 +41,8 @@ public class MasterLayoutController implements Initializable {
     /**
      * Initializes the controller after its root element has been completely processed.
      *
-     * @param location
-     *             The location used to resolve relative paths for the root object, or {@code null} if the location is not known.
-     * @param resources
-     *             The resources used to localize the root object, or {@code null} if the root object was not localized.
+     * @param location  The location used to resolve relative paths for the root object, or {@code null} if the location is not known.
+     * @param resources The resources used to localize the root object, or {@code null} if the root object was not localized.
      */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -67,7 +63,7 @@ public class MasterLayoutController implements Initializable {
             public void handleFrame(StompHeaders headers, Object payload) {
                 logger.info("Message: {}", payload);
                 Message msg = (Message) payload;
-                var v =  "@" + msg.getFrom() + ": " + msg.getText();
+                var v = "@" + msg.getFrom() + ": " + msg.getText();
                 logger.info("Received : " + v);
 
                 Platform.runLater(() -> {
@@ -84,7 +80,7 @@ public class MasterLayoutController implements Initializable {
      * @param event The mouse event triggered by the user's click
      */
     @FXML
-    void fxOnClickSend(MouseEvent event){
+    void fxOnClickSend(MouseEvent event) {
 
     }
 
@@ -94,9 +90,9 @@ public class MasterLayoutController implements Initializable {
      * @param event The key event triggered by the user's key press
      */
     @FXML
-    void fxOnChatBoxKeyPress(KeyEvent event){
+    void fxOnChatBoxKeyPress(KeyEvent event) {
         logger.info(event.getCode().getName());
-        if(Objects.equals(event.getCode().getName(), "Enter")){
+        if (Objects.equals(event.getCode().getName(), "Enter")) {
             Platform.runLater(() -> {
                 MyStompSessionHandler.session.send("/app/message", new Message().setFrom(Data.user.getEmail()).setText(fxChatTextField.getText()));
                 fxChatTextField.setText("");
@@ -153,5 +149,11 @@ public class MasterLayoutController implements Initializable {
     @FXML
     private void onClickManageRoute(MouseEvent event) {
         Navigate.to("route_table.fxml");
+    }
+
+    @FXML
+    private void fxOnClickOrderReport(MouseEvent event) {
+        Navigate.to("invoice_table.fxml");
+
     }
 }

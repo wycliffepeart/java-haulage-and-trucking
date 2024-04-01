@@ -1,8 +1,6 @@
 package org.jht.server.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.experimental.Accessors;
@@ -22,4 +20,7 @@ public class Invoice {
     private double total;
 
     private LocalDate createdAt;
+
+    @ManyToOne(cascade = CascadeType.ALL, optional = false)
+    private Customer customer;
 }

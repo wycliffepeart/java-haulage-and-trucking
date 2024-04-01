@@ -23,7 +23,7 @@ public class FXMLInflater {
     /**
      * Inflate and bind a controller to the layout
      *
-     * @param layoutName   The file to load
+     * @param layoutName The file to load
      * @return {@link Scene}
      * @throws IOException IOException
      */
@@ -37,7 +37,7 @@ public class FXMLInflater {
     /**
      * Inflate and bind a controller to the layout
      *
-     * @param layoutName      The file to load
+     * @param layoutName The file to load
      * @param controller The controller to bindFxml
      * @return {@link Scene}
      * @throws IOException IOException
@@ -84,9 +84,29 @@ public class FXMLInflater {
     }
 
     /**
-     *  Retrieve the layout url
+     * Inflates and loads a JavaFX Parent object from an FXML layout file.
      *
-     * @param layoutName  The name of the layout
+     * @param layout The name of the FXML layout file to load.
+     * @param controller The controller to bind to the layout.
+     * @return The JavaFX Parent object loaded from the FXML layout file.
+     * @throws RuntimeException If an I/O error occurs during loading.
+     */
+    public static Parent inflateParent(String layout, Object controller) {
+
+        try {
+            var fxml = new FXMLLoader(JHTApplication.class.getResource(layout));
+            fxml.setController(controller);
+
+            return fxml.load();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    /**
+     * Retrieve the layout url
+     *
+     * @param layoutName The name of the layout
      * @return {@link URL} The url object
      * @throws MalformedURLException throws exception
      */

@@ -37,7 +37,7 @@ public class OrdersController {
         var admin = this.staffRepository.findById(body.getAdminId()).get();
         var driver = this.staffRepository.findById(body.getDriverId()).get();
         var customer = this.customerRepository.findById(body.getCustomerId()).get();
-        var invoice = new Invoice().setTotal(route.getDistance() * route.getRate()).setCreatedAt(LocalDate.now());
+        var invoice = new Invoice().setTotal(route.getDistance() * route.getRate()).setCreatedAt(LocalDate.now()).setCustomer(customer);
 
         var order = new OrderEntity()
                 .setAdmin(admin)

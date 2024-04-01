@@ -103,6 +103,26 @@ public class Navigate {
     }
 
     /**
+     * Open a new window with the specified name, layout, and controller.
+     *
+     * @param name       The name of the window
+     * @param layout     The name of the layout file to load
+     * @param controller The controller object to bind to the layout
+     */
+    public static Stage toWindow(String name, String layout, Object controller) {
+        Parent parent = FXMLInflater.inflateParent(layout, controller);
+        Stage stage = new Stage();
+        stage.initOwner(getParentStage());
+        stage.initModality(Modality.APPLICATION_MODAL);
+        stage.setTitle(name);
+        stage.setScene(new Scene(parent, 600, 600));
+        stage.show();
+        parent.requestFocus();
+
+        return stage;
+    }
+
+    /**
      * Route the application to a scene
      *
      * @param name   The name of the scene
