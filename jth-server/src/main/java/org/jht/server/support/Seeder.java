@@ -43,6 +43,7 @@ public class Seeder {
             this.staffRepository.save(getDefaultAdminStaff(Role.STAFF, "234565439"));
             this.routeRepository.save(getRoute());
             this.customerRepository.save(getCustomer());
+            this.customerRepository.save(getCustomer());
 
             var admin1 = this.userRepository.save(new User().setEmail("admin1@gmail.com").setPassword("123456"));
             admin1.setStaff(adminStaff1);
