@@ -21,6 +21,7 @@ module org.jht {
     requires spring.messaging;
     requires spring.websocket;
     requires com.fasterxml.jackson.databind;
+    requires java.validation;
 
     opens org.jht to javafx.fxml, lombok;
     opens org.jht.dto to com.google.gson;
